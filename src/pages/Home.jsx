@@ -8,6 +8,7 @@ class Home extends React.Component {
         <p>Hello from Mackenzie</p>
         <p>Bonjour from Paul</p>
         <p>heyhey from maud</p>
+        <p>COUCOU</p>
       </div>
     );
   }
