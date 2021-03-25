@@ -5,6 +5,8 @@ class Home extends React.Component {
     return (
       <div>
         <h1>Home Page ∆</h1>
+        <p>Hello from Mackenzie</p>
+        <p>Bonjour from Paul</p>
         <p>COUCOU</p>
       </div>
     );
