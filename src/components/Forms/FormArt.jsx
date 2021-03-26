@@ -3,10 +3,12 @@ import React, { Component } from "react";
 
 class FormArt extends Component {
   state = {
+    artistName: "",
     pictureUrl: "",
     title: "",
     description: "",
-    dimensions: [0,0],
+    larg: 0,
+    lng: 0,
     price: 0,
   };
 
@@ -17,14 +19,18 @@ class FormArt extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log("clickty click");
+    console.log("handle submit is working");
 
     axios
       .post("http://localhost:4000/api/artworks/", {
-        name: this.state.name,
-        brand: this.state.brand,
+        artistName: this.state.artistName,
+        pictureUrl: this.state.pictureUrl,
+        title: this.state.title,
+        description: this.state.description,
+        larg: this.state.larg,
+        lng: this.state.lng,
         price: this.state.price,
-        image: this.state.image,
+
       })
       .then((response) => {
         // this.setState({
@@ -33,7 +39,7 @@ class FormArt extends Component {
         //   price: 0,
         //   image: "",
         // });
-        this.props.history.push("/guitars");
+        this.props.history.push("/gallery");
       })
       .catch((error) => {
         console.log(error);
@@ -44,31 +50,13 @@ class FormArt extends Component {
     return (
       <form method="" onSubmit={this.handleSubmit}>
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="artistName">Artist Name:</label>
           <input
-            id="name"
+            id="artistName"
             onChange={this.handleChange}
-            value={this.state.name}
-            name="name"
+            value={this.state.artistName}
+            name="artistName"
             type="text"
-          />
-        </div>
-        <div>
-          <label htmlFor="">Brand</label>
-          <input
-            name="brand"
-            value={this.state.brand}
-            onChange={this.handleChange}
-            type="text"
-          />
-        </div>
-        <div>
-          <label htmlFor="">Price</label>
-          <input
-            onChange={this.handleChange}
-            value={this.state.price}
-            name="price"
-            type="number"
           />
         </div>
         <div>
@@ -78,6 +66,56 @@ class FormArt extends Component {
             value={this.state.image}
             onChange={this.handleChange}
             type="text"
+          />
+        </div>
+        <div>
+          <label htmlFor="title">Artwork Title:</label>
+          <input
+            id="title"
+            onChange={this.handleChange}
+            value={this.state.title}
+            name="title"
+            type="text"
+          />
+        </div>
+        <div>
+          <label htmlFor="description">Description</label>
+          <input
+            id="description"
+            onChange={this.handleChange}
+            value={this.state.description}
+            name="description"
+            type="text"
+          />
+        </div>
+        <div>
+          <label htmlFor="larg">Width</label>
+          <input
+            id="larg"
+            onChange={this.handleChange}
+            value={this.state.larg}
+            name="larg"
+            type="number"
+          />
+        </div>
+        <div>
+          <label htmlFor="lng">Height</label>
+          <input
+            id="lng"
+            onChange={this.handleChange}
+            value={this.state.lng}
+            name="lng"
+            type="number"
+          />
+        </div>
+        <div>
+          <label htmlFor="price">Price</label>
+          <input
+            id="price"
+            onChange={this.handleChange}
+            value={this.state.price}
+            name="price"
+            type="number"
           />
         </div>
         <button>Submit</button>
