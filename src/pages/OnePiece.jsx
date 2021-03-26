@@ -1,53 +1,59 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-class GalleryList extends React.Component {
+
+class OnePiece extends React.Component {
   state = {
-    gallery: [],
+    artwork: null,
   };
 
-  getAll() {
+  componentDidMount() {
+    let artworkId = this.props.match.params.id;
     axios
-      .get("http://localhost:3000/api/your-project-3")
+      .get(`http://localhost:4000/api/artworks/${id}`)
       .then((response) => {
-        this.setState({ gallery: response.data });
+        this.setState({ artworkId: response.data });
       })
       .catch((error) => {
         console.log(error);
       });
   }
 
-  componentDidMount() {
-    this.getAll();
-  }
-
-  handleDelete = (id) => {
-    // axios stuff overhere
-    // then you get the reponse
-    // meaning it got deleted
-    //this.getAll();
-  };
+  // handleDelete = (id) => {
+  // axios stuff overhere
+  // then you get the reponse
+  // meaning it got deleted
+  // this.getAll();
+  // };
 
   render() {
+    if (this.state.artwork === null) {
+      return <div>Loading...</div>;
+    }
+
     return (
       <div>
-        <p>Art Gallery</p>
-        <div>
-          {this.state.gallery.map((oneArtPiece) => {
-            return (
-              <div>
-                <p>{oneArtPiece.title}</p>
-              {/* afficher le nom de l'auteur de l'oeuvre */}
-                <img src={oneArtPiece.pictureUrl} alt="" />
-                <Link to={`/artwork/${oneArtPiece._id}/edit`}>See more</Link>
-                {/* <button>Details</button> */}
-              </div>
-            );
-          })}
-        </div>
+        <h2>{this.state.artwork.title}</h2>
+        <p>By {this.state.artwork.artistName}</p>
+        <p>
+          <img
+            src={this.state.artwork.pictureUrl}
+            alt="{this.state.artwork.title}"
+          />
+        </p>
+        <p>{this.state.artwork.description}</p>
+        <p>
+          Dimensions: {this.state.artwork.dimensions[0]} x
+          {this.state.artwork.dimensions[1]}
+        </p>
+        <p>{this.state.artwork.price} €</p>
+        {/* TO BE CREATED */}
+        <button>
+          <Link to={`/artworks/${oneArtPiece._id}/buy`}>Buy</Link>
+        </button>
       </div>
     );
   }
 }
 
-export default GalleryList;
+export default OnePiece;

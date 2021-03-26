@@ -37,10 +37,17 @@ class GalleryList extends React.Component {
             return (
               <div>
                 <p>{oneArtPiece.title}</p>
-              {/* afficher le nom de l'auteur de l'oeuvre */}
-                <img src={oneArtPiece.pictureUrl} alt="" />
-                <Link to={`/artworks/${oneArtPiece._id}`}>See more</Link>
-                {/* <button>Details</button> CLICKABLE IMAGE */}
+                {/* afficher le nom de l'auteur de l'oeuvre */}
+                <p>
+                  <Link to={`/artworks/${oneArtPiece._id}`}>
+                    <img src={oneArtPiece.pictureUrl} alt="" />
+                  </Link>
+                </p>
+                <p>
+                  <button>
+                    <Link to={`/artworks/${oneArtPiece._id}`}>See more</Link>
+                  </button>
+                </p>
               </div>
             );
           })}
