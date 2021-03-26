@@ -60,7 +60,7 @@ class FormArt extends Component {
 
   render() {
     return (
-      <form method="" onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label htmlFor="artistName">Artist Name:</label>
           <input
@@ -72,12 +72,13 @@ class FormArt extends Component {
           />
         </div>
         <div>
-          <label htmlFor="">Image</label>
+          <label htmlFor="pictureUrl">Image</label>
           <input
-            name="image"
-            value={this.state.image}
-            onChange={this.handleChange}
-            type="text"
+            id="pictureUrl"
+            name="pictureUrl"
+            value={this.state.pictureUrl}
+            onChange={this.handleFileChange}
+            type="file"
           />
         </div>
         <div>

@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-class GalleryList extends React.Component {
+
+class Gallery extends React.Component {
   state = {
     gallery: [],
   };
@@ -50,4 +51,4 @@ class GalleryList extends React.Component {
   }
 }
 
-export default GalleryList;
+export default Gallery;
