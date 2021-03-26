@@ -21,12 +21,7 @@ class GalleryList extends React.Component {
     this.getAll();
   }
 
-  handleDelete = (id) => {
-    // axios stuff overhere
-    // then you get the reponse
-    // meaning it got deleted
-    //this.getAll();
-  };
+
 
   render() {
     return (

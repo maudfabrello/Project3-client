@@ -8,11 +8,11 @@ class OnePiece extends React.Component {
   };
 
   componentDidMount() {
-    let artworkId = this.props.match.params.id;
+    let id = this.props.match.params.id;
     axios
       .get(`http://localhost:4000/api/artworks/${id}`)
       .then((response) => {
-        this.setState({ artworkId: response.data });
+        this.setState({ artwork: response.data });
       })
       .catch((error) => {
         console.log(error);
@@ -38,7 +38,7 @@ class OnePiece extends React.Component {
         <p>
           <img
             src={this.state.artwork.pictureUrl}
-            alt="{this.state.artwork.title}"
+            alt={this.state.artwork.title}
           />
         </p>
         <p>{this.state.artwork.description}</p>
