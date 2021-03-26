@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Delete from "../components/Forms/Delete";
 import { Link } from "react-router-dom";
 
 class OnePiece extends React.Component {
@@ -51,6 +52,12 @@ class OnePiece extends React.Component {
         <button>
           <Link to={`/artworks/${oneArtPiece._id}/buy`}>Buy</Link>
         </button>
+
+
+{/* IF CONNECTED */}
+        <Delete />
+
+
       </div>
     );
   }
