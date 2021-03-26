@@ -4,18 +4,27 @@ import React, { Component } from "react";
 class FormArt extends Component {
   state = {
     artistName: "",
-    pictureUrl: "",
+    pictureUrl: null,
     title: "",
     description: "",
     larg: 0,
     lng: 0,
     price: 0,
+  
   };
 
   handleChange = (event) => {
     const key = event.target.name;
     this.setState({ [key]: event.target.value });
   };
+
+  handleFileChange = (event) => {
+    console.log("The file added by the use is: ", event.target.files[0]);
+    this.setState({
+      pictureUrl: event.target.files[0],
+    });
+  };
+
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -33,13 +42,16 @@ class FormArt extends Component {
 
       })
       .then((response) => {
-        // this.setState({
-        //   name: "",
-        //   brand: "",
-        //   price: 0,
-        //   image: "",
-        // });
-        this.props.history.push("/gallery");
+         this.setState({
+          artistName: "",
+          pictureUrl: null,
+          title: "",
+          description: "",
+          larg: 0,
+          lng: 0,
+          price: 0,
+         });
+        this.props.history.push("/artworks");
       })
       .catch((error) => {
         console.log(error);
