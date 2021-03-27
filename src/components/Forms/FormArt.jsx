@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
 class FormArt extends Component {
   state = {
     artistName: "",
-    pictureUrl: null,
+    pictureUrl: "",
     title: "",
     description: "",
     larg: 0,
@@ -18,49 +19,44 @@ class FormArt extends Component {
     this.setState({ [key]: event.target.value });
   };
 
-  handleFileChange = (event) => {
-    console.log("The file added by the use is: ", event.target.files[0]);
-    this.setState({
-      pictureUrl: event.target.files[0],
-    });
+
+  handleImage = (event) => {
+    const file = event.target.files[0]; // Get the value of file input
+    console.log(file);
+    // console.log(file, "this is the file");
+    this.setState({ pictureUrl: file });
   };
 
 
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("handle submit is working");
+    const formData = new FormData();
+
+    formData.append("artistName", this.state.artistName);
+    formData.append("pictureUrl", this.state.pictureUrl);
+    formData.append("title", this.state.title);
+    formData.append("description", this.state.description);
+    formData.append("larg", this.state.larg);
+    formData.append("lng", this.state.lng);
+    formData.append(" price", this.state.price);
+  
 
     axios
-      .post("http://localhost:4000/api/artworks/", {
-        artistName: this.state.artistName,
-        pictureUrl: this.state.pictureUrl,
-        title: this.state.title,
-        description: this.state.description,
-        larg: this.state.larg,
-        lng: this.state.lng,
-        price: this.state.price,
-
-      })
+      .post("http://localhost:4000/api/artworks/", formData, { withCredentials: true })
       .then((response) => {
-         this.setState({
-          artistName: "",
-          pictureUrl: null,
-          title: "",
-          description: "",
-          larg: 0,
-          lng: 0,
-          price: 0,
-         });
-        this.props.history.push("/artworks");
+         
+        this.props.history.push("api/artworks");
       })
       .catch((error) => {
         console.log(error);
+        this.setState({ message: error.response.data.message });
       });
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}  enctype="multipart/form-data">
         <div>
           <label htmlFor="artistName">Artist Name:</label>
           <input
@@ -76,8 +72,8 @@ class FormArt extends Component {
           <input
             id="pictureUrl"
             name="pictureUrl"
-            value={this.state.pictureUrl}
-            onChange={this.handleFileChange}
+            // value={this.state.pictureUrl}
+            onChange={this.handleImage}
             type="file"
           />
         </div>
@@ -137,4 +133,4 @@ class FormArt extends Component {
   }
 }
 
-export default FormArt;
+export default withRouter(FormArt);

@@ -1,10 +1,11 @@
 import axios from "axios";
-import React from "react";
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 
-class FormEditArtwork extends React.Component {
+class FormEditArtwork extends Component {
   state = {
     artistName: "",
-    pictureUrl: null,
+    pictureUrl: "",
     title: "",
     description: "",
     larg: 0,
@@ -17,7 +18,7 @@ class FormEditArtwork extends React.Component {
     const id = this.props.match.params.id;
 
     axios
-      .get(`http://localhost:4000/api/artworks/${id}`)
+      .get(`http://localhost:4000/api/artworks/${id}`, { withCredentials: true })
       .then((response) => {
         const data = response.data;
 
@@ -39,18 +40,21 @@ class FormEditArtwork extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const id = this.props.match.params.id;
+
+    const formUpdateData = new FormData();
+
+    formUpdateData.append("artistName", this.state.artistName);
+    formUpdateData.append("pictureUrl", this.state.pictureUrl);
+    formUpdateData.append("title", this.state.title);
+    formUpdateData.append("description", this.state.description);
+    formUpdateData.append("larg", this.state.larg);
+    formUpdateData.append("lng", this.state.lng);
+    formUpdateData.append(" price", this.state.price);
+
     axios
-      .patch(`http://localhost:4000/api/artworks/${id}`, {
-          artistName: this.state.artistName,
-          pictureUrl: this.state.pictureUrl,
-          title: this.state.title,
-          description: this.state.description,
-          larg: this.state.larg,
-          lng: this.state.lng,
-          price: this.state.price,
-      })
+      .patch(`http://localhost:4000/api/artworks/edit/${id}`, formUpdateData, { withCredentials: true } )
       .then((response) => {
-        this.props.history.push("/api/artworks");
+        this.props.history.push("/artworks");
       })
       .catch((error) => {
         console.log(error);
@@ -62,18 +66,18 @@ class FormEditArtwork extends React.Component {
     this.setState({ [name]: value });
   };
 
-  handleFileChange = (event) => {
-    console.log("The file added by the use is: ", event.target.files[0]);
-    this.setState({
-      pictureUrl: event.target.files[0],
-    });
+  handleImage = (event) => {
+    const file = event.target.files[0]; // Get the value of file input
+    console.log(file);
+    // console.log(file, "this is the file");
+    this.setState({ pictureUrl: file });
   };
 
   render() {
     return (
       <div>
         <h1> Editing your artwork </h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
         <div>
           <label htmlFor="artistName">Artist Name:</label>
           <input
@@ -89,8 +93,8 @@ class FormEditArtwork extends React.Component {
           <input
             id="pictureUrl"
             name="pictureUrl"
-            value={this.state.pictureUrl}
-            onChange={this.handleFileChange}
+            // value={this.state.pictureUrl}
+            onChange={this.handleImage}
             type="file"
           />
         </div>
@@ -151,4 +155,4 @@ class FormEditArtwork extends React.Component {
   }
 }
 
-export default FormEditArtwork ;
+export default withRouter(FormEditArtwork) ;

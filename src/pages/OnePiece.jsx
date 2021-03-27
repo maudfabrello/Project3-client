@@ -49,7 +49,7 @@ class OnePiece extends React.Component {
         <p>{this.state.artwork.price} €</p>
         {/* TO BE CREATED */}
         <button>
-          <Link to={`/artworks/${oneArtPiece._id}/buy`}>Buy</Link>
+          <Link to={`/artworks/${this.state.artwork._id}/buy`}>Buy</Link>
         </button>
       </div>
     );
