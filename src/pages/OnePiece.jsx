@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 class OnePiece extends React.Component {
   state = {
     artwork: null,
+  
   };
 
   componentDidMount() {
