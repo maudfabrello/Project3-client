@@ -27,6 +27,18 @@ class OnePiece extends React.Component {
   // this.getAll();
   // };
 
+  deleteArtwork = id => {
+    // const toDelete = confirm('Are you sure you want to delete?');
+    // if (toDelete) {
+      axios
+        .delete(`http://localhost:4000/api/artworks/${id}`)
+        .then(response => {
+          alert(response.data);
+        })
+        .catch(err => console.log(`Err while deleting character: ${err}`));
+    // }
+  };
+
   render() {
     if (this.state.artwork === null) {
       return <div>Loading...</div>;
@@ -52,6 +64,12 @@ class OnePiece extends React.Component {
         <button>
           <Link to={`/artworks/${this.state.artwork._id}/buy`}>Buy</Link>
         </button>
+        {/* <Button handleClick={(event) => handleDelete(_id)} secondary>
+            Delete
+          </Button>
+          <Button handleClick={(event) => handleEdit(_id)} primary>
+            Edit
+          </Button> */}
 
 
 {/* IF CONNECTED */}
