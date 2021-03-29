@@ -1,13 +1,26 @@
 import React from "react";
 import axios from "axios";
+// import { withUser } from "../components/Auth/withUser";
+import { withRouter } from "react-router-dom";
 // import Delete from "../components/Forms/Delete";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 class OnePiece extends React.Component {
-  state = {
-    artwork: null,
+
+  // constructor(props) {
+  //   super(props);
+  //   const { context } = props;
+
+    // this.state = {
+    //   // allContacts: contactsFromJSON,
+    //   artwork: null,
+    // };
+    state = {
+      artwork: null,
   
-  };
+    };
+  // };
+  
 
   componentDidMount() {
     let id = this.props.match.params.id;
@@ -21,12 +34,24 @@ class OnePiece extends React.Component {
       });
   }
 
-  // handleDelete = (id) => {
-  // axios stuff overhere
-  // then you get the reponse
-  // meaning it got deleted
-  // this.getAll();
-  // };
+  handleClick = (event) => {
+    console.log("click");
+    console.log(event);
+    // let buyer = this.context.user._id;
+    let id = this.props.match.params.id;
+    console.log(id)
+    axios
+      .post(`http://localhost:4000/api/onepiece/${id}`, { withCredentials: true })
+      .then((response) => {
+         
+        this.props.history.push("api/artworks");
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({ message: error.response.data.message });
+      });
+
+  }
 
  
 
@@ -52,8 +77,9 @@ class OnePiece extends React.Component {
         </p>
         <p>{this.state.artwork.price} €</p>
         {/* TO BE CREATED */}
-        <button>
-          <Link to={`/artworks/${this.state.artwork._id}/buy`}>Buy</Link>
+        <button onClick={this.handleClick}>
+          {/* <Link onClick={this.handleClick}to={`/artworks/${this.state.artwork._id}/buy`}>Buy</Link> */}
+BUY
         </button>
         {/* <Button handleClick={(event) => handleDelete(_id)} secondary>
             Delete
@@ -71,5 +97,5 @@ class OnePiece extends React.Component {
     );
   }
 }
+export default withRouter(OnePiece);
 
-export default OnePiece;
