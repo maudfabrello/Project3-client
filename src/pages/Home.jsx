@@ -26,61 +26,45 @@ class Home extends React.Component {
       });
   }
 
-  // addRandomContact() {
-  //   // console.log("random clicked"); Always look if  you event handler works before any logic ;)
-  //   let randomIndex = Math.floor(contactsFromJSON.length * Math.random()); // random number between 0 and contactsFromJSON.length (excluded)
-  //   let randomContact = contactsFromJSON[randomIndex];
-
-  //   // Method 1
-  //   // Create a copy of this.state.firstVisibleContacts
-  //   let newList = [...this.state.firstVisibleContacts];
-  //   // push or unshift in the copy you just created
-  //   newList.unshift(randomContact);
-  //   // save it in the state
-  //   this.setState({
-  //     firstVisibleContacts: newList,
-  //   });
-
-  //   // Method 2
-  //   // this.setState({
-  //   //   firstVisibleContacts: [...this.state.firstVisibleContacts, randomContact]
-  //   // })
-  // }
-
-
   randomizeArtwork(array) {
     let randomIndex = Math.floor(array.length * Math.random());
+    console.log("randomIndex:");
+    console.log(randomIndex);
     let randomArtwork = array[randomIndex];
+    console.log("randomArtwork :");
+    console.log(randomArtwork);
+    // TO MAKE SURE COMPONENTDIDMOUNT DID PASS
+    if (randomArtwork) {
+      console.log(randomArtwork.pictureUrl);
+    }
+    // console.log(randomArtwork.pictureUrl);
     return randomArtwork;
-    // console.log("RANDOMARTWORK");
-    // console.log(randomArtwork);
   }
 
   render() {
+    console.log("STATE :", this.state);
+    let randomPiece = this.randomizeArtwork(this.state.gallery);
+    console.log("this.state.gallery");
+    console.log(this.state.gallery);
+    console.log("randomPiece :");
+    console.log(randomPiece);
+    // console.log("randomArtwork :");
+    // console.log(randomArtwork);
+
     return (
       <div>
-        <h1>Home Page ∆</h1>
+        <h1>Art 4 All</h1>
 
-        <div>RANDOM ARTWORK</div>
+        <div>Random artwork :</div>
         <div>
           {
-          randomizeArtwork(this.state.gallery);
+            // GUARD OPERATOR :
+            randomPiece && (
+              //
+              <img src={randomPiece.pictureUrl} alt={randomPiece.title} />
+            )
           }
-          
-        {/* <img src={randomArtwork.pictureUrl} alt={randomArtwork.title} /> */}
-        
-
-
-
-          {  this.state.gallery.map((oneArtPiece) => {
-            return (
-              <div>
-                <p>
-                  <img src={oneArtPiece.pictureUrl} alt={oneArtPiece.title} />
-                </p>
-              </div>
-            );
-          })}{" "}
+          <Link to={`/artworks`}>Check the whole Gallery!</Link>
         </div>
       </div>
     );
