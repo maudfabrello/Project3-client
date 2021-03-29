@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+// Import OnePiece ?
 
 class Home extends React.Component {
   render() {
@@ -9,6 +11,11 @@ class Home extends React.Component {
         <p>Bonjour from Paul</p>
         <p>heyhey from maud</p>
         <p>COUCOU</p>
+        <p>
+        <Link to="/artworks">See the full gallery</Link>
+        </p>
+        
+   
       </div>
     );
   }

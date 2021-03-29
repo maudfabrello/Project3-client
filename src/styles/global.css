@@ -18,3 +18,9 @@ a {
 ul {
   list-style-type: none;
 }
+
+
+
+.single-artpiece {
+  max-width: 30%;
+}
