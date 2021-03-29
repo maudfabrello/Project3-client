@@ -23,15 +23,28 @@ class Gallery extends React.Component {
   }
 
   deleteArtwork = id => {
+    console.log(id);
     // const toDelete = confirm('Are you sure you want to delete?');
     // if (toDelete) {
       axios
         .delete(`http://localhost:4000/api/artworks/${id}`)
-        .then(() => {
-          const restOfTheArtworks = [...this.state.restOfTheArtworks].filter(
+        .then((res) => {
+          console.log(res.data)
+          const restOfTheArtworks = this.state.gallery.filter(
             (artwork) => artwork._id !== id
           );
-          this.setState({ gallery: restOfTheArtworks })});
+          this.setState({ gallery: restOfTheArtworks });
+          // res.data
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+     
+       
+          
+          
+
+
         // .catch(err => console.log(`Err while deleting character: ${err}`));
     // }
   };
@@ -63,6 +76,9 @@ class Gallery extends React.Component {
                 <p>
                   <button>
                     <Link to={`/artworks/${oneArtPiece._id}`}>See more</Link>
+                  </button>
+                  <button  onClick={() =>this.deleteArtwork(oneArtPiece._id)}>
+                   Delete
                   </button>
                 </p>
               </div>
