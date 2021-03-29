@@ -21,8 +21,9 @@ function App() {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/artworks/create" component={FormArt} />
         <Route exact path="/artworks/edit/:id" component={FormEditArtwork} />
-        <Route exact path="/artworks/" component={Gallery} />
+        <Route exact path="/artworks" component={Gallery} />
         <Route exact path="/artworks/:id" component={OnePiece} />
+        <Route exact path="/artworks/delete/:id" component={Gallery}/>
         <ProtectedRoute exact path="/profile" component={Profile} />
       </Switch>
     </div>

@@ -1,15 +1,25 @@
 import React from "react";
 
 class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // allContacts: contactsFromJSON,
+      artworks: []
+    };
+  }
+
   render() {
     return (
       <div>
         <h1>Home Page ∆</h1>
-        <p>Hello from Mackenzie</p>
-        <p>Bonjour from Paul</p>
-        <p>heyhey from maud</p>
-        <p>COUCOU</p>
+       
+        <div>ARTWORKS</div>
       </div>
+
+
     );
   }
 }

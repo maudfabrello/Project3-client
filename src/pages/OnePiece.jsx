@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Delete from "../components/Forms/Delete";
+// import Delete from "../components/Forms/Delete";
 import { Link } from "react-router-dom";
 
 class OnePiece extends React.Component {
@@ -64,7 +64,7 @@ class OnePiece extends React.Component {
 
 
 {/* IF CONNECTED */}
-        <Delete />
+        {/* <Delete /> */}
 
 
       </div>
