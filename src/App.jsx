@@ -10,6 +10,7 @@ import FormArt from "./components/Forms/FormArt"
 import Gallery from "./pages/Gallery";
 import OnePiece from "./pages/OnePiece";
 import FormEditArtwork from "./components/Forms/FormEditArtwork";
+import Purchased from "./pages/Purchased";
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
         <Route exact path="/artworks/edit/:id" component={FormEditArtwork} />
         <Route exact path="/artworks" component={Gallery} />
         <Route exact path="/artworks/:id" component={OnePiece} />
-        <Route exact path="/artworks/delete/:id" component={Gallery}/>
+        <Route exact path="/artworks/:id" component={OnePiece} />
+        <Route exact path="/artworks/purchased" component={Purchased}/>
         <ProtectedRoute exact path="/profile" component={Profile} />
       </Switch>
     </div>
