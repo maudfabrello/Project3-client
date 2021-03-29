@@ -62,23 +62,30 @@ class Gallery extends React.Component {
     return (
       <div>
         <p>Art Gallery</p>
-        <div>
+        <div className="container-single-artpiece">
           {this.state.gallery.map((oneArtPiece) => {
             return (
-              <div>
-                <p>{oneArtPiece.title}</p>
-                {/* afficher le nom de l'auteur de l'oeuvre */}
+              <div className="single-artpiece">
                 <p>
                   <Link to={`/artworks/${oneArtPiece._id}`}>
                     <img src={oneArtPiece.pictureUrl} alt="" />
                   </Link>
                 </p>
+                <p className="title-single-artpiece">{oneArtPiece.title}</p>
+                {/* afficher le nom de l'auteur de l'oeuvre */}
+                <p className="artist-single-artpiece">{oneArtPiece.artistName}</p>
                 <p>
-                  <button>
+                  <button className="button">
                     <Link to={`/artworks/${oneArtPiece._id}`}>See more</Link>
                   </button>
-                  <button  onClick={() =>this.deleteArtwork(oneArtPiece._id)}>
+                  <p></p>
+                  <button className="button" onClick={() =>this.deleteArtwork(oneArtPiece._id)}>
                    Delete
+                  </button>
+                  <button className="button" 
+                  // onClick={() =>this.deleteArtwork(oneArtPiece._id)}
+                  >
+                   Update
                   </button>
                 </p>
               </div>

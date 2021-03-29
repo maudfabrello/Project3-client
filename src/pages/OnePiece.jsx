@@ -36,23 +36,22 @@ class OnePiece extends React.Component {
     }
 
     return (
-      <div>
-        <h2>{this.state.artwork.title}</h2>
-        <p>By {this.state.artwork.artistName}</p>
-        <p>
+      <div className="single-container-single-artpiece">
+        <div className="single-artpiece-child">
           <img
             src={this.state.artwork.pictureUrl}
             alt={this.state.artwork.title}
           />
-        </p>
-        <p>{this.state.artwork.description}</p>
+        <h2>{this.state.artwork.title}</h2>
+        <p>By {this.state.artwork.artistName}</p>
+                <p>{this.state.artwork.description}</p>
         <p>
           Dimensions: {this.state.artwork.dimensions[0]} x
           {this.state.artwork.dimensions[1]}
         </p>
         <p>{this.state.artwork.price} €</p>
         {/* TO BE CREATED */}
-        <button>
+        <button className="button">
           <Link to={`/artworks/${this.state.artwork._id}/buy`}>Buy</Link>
         </button>
         {/* <Button handleClick={(event) => handleDelete(_id)} secondary>
@@ -66,7 +65,7 @@ class OnePiece extends React.Component {
 {/* IF CONNECTED */}
         {/* <Delete /> */}
 
-
+        </div>
       </div>
     );
   }

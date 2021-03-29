@@ -19,8 +19,66 @@ ul {
   list-style-type: none;
 }
 
+/* GALLERY PAGE */
 
+.container-single-artpiece {
+  max-width: 100%;
+  /* background-color: blue; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0px;
+  margin: 0px;
+}
 
 .single-artpiece {
   max-width: 30%;
+  /* background-color: purple; */
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  text-align: center;
+}
+
+.button {
+  background-color: #2ba7cb;
+  padding: 2% 3% 2% 3%;
+  margin: 2%;
+  color: #ffffff;
+  border-radius: .15em;
+  border-style: none;
+}
+
+.button:hover {
+  background-color: #056f87;
+}
+
+.title-single-artpiece {
+  font-size: 1.6em;
+  line-height: 2.3em;
+}
+
+.artist-single-artpiece {
+  font-size: 1em;
+}
+
+/* ONE PIECE PAGE */
+
+.single-container-single-artpiece {
+  margin-top: 7%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* background-color: royalblue; */
+}
+
+.single-artpiece-child {
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 7%;
+  margin-left: auto;
+  margin-right: auto;
 }
