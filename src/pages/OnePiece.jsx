@@ -41,10 +41,10 @@ class OnePiece extends React.Component {
     let id = this.props.match.params.id;
     console.log(id)
     axios
-      .post(`http://localhost:4000/api/onepiece/${id}`, { withCredentials: true })
+      .post(`http://localhost:4000/api/onepiece/${id}`,{}, { withCredentials: true })
       .then((response) => {
          
-        this.props.history.push("api/artworks");
+        this.props.history.push("api/artworks/purchased");
       })
       .catch((error) => {
         console.log(error);

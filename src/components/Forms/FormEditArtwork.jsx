@@ -54,7 +54,7 @@ class FormEditArtwork extends Component {
     axios
       .patch(`http://localhost:4000/api/artworks/edit/${id}`, formUpdateData, { withCredentials: true } )
       .then((response) => {
-        this.props.history.push("/artworks");
+        this.props.history.push(`api/artworks/${id}`);
       })
       .catch((error) => {
         console.log(error);
