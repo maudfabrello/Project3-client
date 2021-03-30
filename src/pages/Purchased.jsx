@@ -1,11 +1,22 @@
-import React from 'react'
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Purchased = () => {
-    return (
-        <div>
-            THANK YOU FOR YOUR PURCHASE
-        </div>
-    )
-}
+  return (
+    <div>
+      <h1>Thank you for your purchase !</h1>
 
-export default Purchased
+      <p>
+        <NavLink to="/profile">Back to your profile</NavLink>
+      </p>
+
+      <p>
+        <NavLink exact to="/artworks">
+          <h3 className="gallery">See the Gallery</h3>
+        </NavLink>
+      </p>
+    </div>
+  );
+};
+
+export default Purchased;

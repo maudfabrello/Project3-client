@@ -14,7 +14,7 @@ import { UserContext } from "./UserContext";
 //  How to use:  =>
 // YourComponent.jsx
 // import React from "react"
-// function or class YourComponent()
+// function or class    YourComponent()
 //
 // ... your implementation.
 //
