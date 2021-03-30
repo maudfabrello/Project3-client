@@ -7,7 +7,7 @@ import "../styles/NavMain.css";
 
 const NavMain = (props) => {
   const { context } = props;
-  console.log(props);
+  console.log("PROPS" ,props);
 
   function handleLogout() {
     apiHandler

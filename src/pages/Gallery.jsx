@@ -13,7 +13,7 @@ class Gallery extends React.Component {
   componentDidMount() {
     // this.getAll();
     axios
-      .get("http://localhost:4000/api/artworks")
+      .get("http://localhost:4000/api/artworks",{ withCredentials: true })
       .then((response) => {
         this.setState({ gallery: response.data });
       })
@@ -40,23 +40,11 @@ class Gallery extends React.Component {
           console.log(error);
         });
      
-       
-          
-          
-
-
         // .catch(err => console.log(`Err while deleting character: ${err}`));
     // }
   };
 
-  // deleteItem = (itemId) => {
-  //   apiHandler.removeItem(itemId).then(() => {
-  //     const userItems = [...this.state.userItems].filter(
-  //       (item) => item._id !== itemId
-  //     );
-  //     this.setState({ userItems });
-  //   });
-  // };
+ 
 
   render() {
     return (
