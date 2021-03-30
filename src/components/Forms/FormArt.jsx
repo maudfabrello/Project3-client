@@ -46,7 +46,7 @@ class FormArt extends Component {
       .post("http://localhost:4000/api/artworks/", formData, { withCredentials: true })
       .then((response) => {
          
-        this.props.history.push("api/artworks");
+        this.props.history.push("api/artworks/${id}");
       })
       .catch((error) => {
         console.log(error);
