@@ -67,8 +67,8 @@ class OnePiece extends React.Component {
             src={this.state.artwork.pictureUrl}
             alt={this.state.artwork.title}
           />
-        <h2>{this.state.artwork.title}</h2>
-        <p>By {this.state.artwork.artistName}</p>
+        <h2 className="single-page-title">{this.state.artwork.title}</h2>
+        <p className="single-page-artist">By {this.state.artwork.artistName}</p>
                 <p>{this.state.artwork.description}</p>
         <p>
           Dimensions: {this.state.artwork.dimensions[0]} x
@@ -76,9 +76,9 @@ class OnePiece extends React.Component {
         </p>
         <p>{this.state.artwork.price} €</p>
         {/* TO BE CREATED */}
-        <button className="button" onClick={this.handleClick}>
+        <button className="one-piece-buy-button" onClick={this.handleClick}>
           {/* <Link onClick={this.handleClick}to={`/artworks/${this.state.artwork._id}/buy`}>Buy</Link> */}
-BUY
+          BUY
         </button>
         {/* <Button handleClick={(event) => handleDelete(_id)} secondary>
             Delete
