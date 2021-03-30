@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
 * {
-  margin: 0;
+  margin: 1.5%;
   padding: 0;
   box-sizing: border-box;
 }
@@ -19,9 +19,11 @@ ul {
   list-style-type: none;
 }
 
+
+
 /* GALLERY PAGE */
 
-.container-single-artpiece {
+.gallery-container-single-artpiece {
   max-width: 100%;
   /* background-color: blue; */
   display: flex;
@@ -31,7 +33,7 @@ ul {
   margin: 0px;
 }
 
-.single-artpiece {
+.gallery-single-artpiece {
   max-width: 30%;
   /* background-color: purple; */
   display: flex;
@@ -53,13 +55,14 @@ ul {
   background-color: #056f87;
 }
 
-.title-single-artpiece {
+.gallery-page-title {
   font-size: 1.6em;
-  line-height: 2.3em;
+  padding-top: 1em;
 }
 
-.artist-single-artpiece {
+.gallery-page-artist {
   font-size: 1em;
+  padding-bottom: 1em;
 }
 
 /* ONE PIECE PAGE */
@@ -73,12 +76,42 @@ ul {
   /* background-color: royalblue; */
 }
 
+.single-artpiece-drop-shadow {
+  box-shadow: 5px 10px 8px #888888;
+
+}
+
 .single-artpiece-child {
   max-width: 40%;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
   margin-bottom: 7%;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+.one-piece-buy-button {
+  background-color: #2ba7cb;
+  padding: 2% 3% 2% 3%;
+  margin: 2%;
+  color: #ffffff;
+  border-radius: .15em;
+  border-style: none;
+  width: 13%;
+  text-align: center;
+}
+
+.one-piece-buy-button:hover {
+  background-color: #056f87;
+}
+
+.single-page-title {
+  font-size: 1.6em;
+  padding-top: 1em;
+}
+
+.single-page-artist {
+  font-size: 1em;
 }
