@@ -45,8 +45,10 @@ class FormArt extends Component {
     axios
       .post("http://localhost:4000/api/artworks/", formData, { withCredentials: true })
       .then((response) => {
-         
-        this.props.history.push("api/artworks/${id}");
+        const id = this.props.match.params.id;
+        //HOW DO WE GET THE ID????DONC GALLERY SORT
+        console.log(id);
+        this.props.history.push(`api/artworks`);
       })
       .catch((error) => {
         console.log(error);

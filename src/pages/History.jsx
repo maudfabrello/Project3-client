@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
+import { withUser } from "../components/Auth/withUser";
 
 class History extends Component {
   state = {
@@ -6,11 +10,23 @@ class History extends Component {
     createdArts: [],
   };
 
+  // constructor(props) {
+  //   super(props);
+  //   const { context } = this.props;
+  //   console.log(this.props);
+
+    // this.state = {
+    //   purchasedArts: [],
+    // createdArts: [],
+    // };
+  //}
+
   componentDidMount() {
-    // this.getAll();
+   
     axios
-      .get("http://localhost:4000/api/my-history/purchasedArt")
+      .get("http://localhost:4000/api/myhistory/purchasedArt",{ withCredentials: true })
       .then((response) => {
+        console.log(response.data);
         this.setState({ purchasedArts: response.data });
       })
       .catch((error) => {
@@ -18,8 +34,9 @@ class History extends Component {
       });
 
     axios
-      .get("http://localhost:4000/api/my-history/createdArt")
+      .get("http://localhost:4000/api/myhistory/createdArt", { withCredentials: true })
       .then((response) => {
+          console.log(response.data)
         this.setState({ createdArts: response.data });
       })
       .catch((error) => {
@@ -35,10 +52,10 @@ class History extends Component {
       .delete(`http://localhost:4000/api/artworks/${id}`)
       .then((res) => {
         console.log(res.data);
-        const restOfTheArtworks = this.state.gallery.filter(
+        const restOfTheArtworks = this.state.createdArts.filter(
           (artwork) => artwork._id !== id
         );
-        this.setState({ gallery: restOfTheArtworks });
+        this.setState({ createdArts: restOfTheArtworks });
         // res.data
       })
       .catch((error) => {
@@ -47,16 +64,20 @@ class History extends Component {
   };
 
   render() {
+    console.log(this.props.context)
+    // return <div></div>
     return (
-      <div>
-        <div> USER NAME AND EMAIL</div>
-        <div>
+       <div> 
+          <div> USER NAME AND EMAIL</div>
+         <div>
           {" "}
-          {/* key */}
           {this.state.purchasedArts.map((oneArtPiece) => {
-            return <div>PURCHASED ARTS</div>;
+            return (
+            <div>
+              <p>PURCHASED {oneArtPiece.purchasedArt[0].title}</p>
+            </div>)
           })}
-        </div>
+         </div> 
         <div>
           {" "}
           {this.state.createdArts.map((oneArt) => {
@@ -78,11 +99,11 @@ class History extends Component {
     
               </div>
             );
-          })}
-        </div>
+          })} 
+        </div> 
       </div>
     );
   }
 }
 
-export default History;
+export default withUser(History);
