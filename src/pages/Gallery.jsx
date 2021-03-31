@@ -13,7 +13,7 @@ class Gallery extends React.Component {
   componentDidMount() {
     // this.getAll();
     axios
-      .get("http://localhost:4000/api/artworks",{ withCredentials: true })
+      .get(process.env.REACT_APP_BACKEND_URL + "/api/artworks",{ withCredentials: true })
       .then((response) => {
         this.setState({ gallery: response.data });
       })
@@ -27,7 +27,7 @@ class Gallery extends React.Component {
     // const toDelete = confirm('Are you sure you want to delete?');
     // if (toDelete) {
       axios
-        .delete(`http://localhost:4000/api/artworks/${id}`)
+        .delete(process.env.REACT_APP_BACKEND_URL +`/api/artworks/${id}`)
         .then((res) => {
           console.log(res.data)
           const restOfTheArtworks = this.state.gallery.filter(
@@ -66,15 +66,15 @@ class Gallery extends React.Component {
                   <button className="button">
                     <Link to={`/artworks/${oneArtPiece._id}`}>Details</Link>
                   </button>
-                  <p></p>
-                  <button className="button" 
-                  // onClick={() =>this.deleteArtwork(oneArtPiece._id)}
-                  >
-                   Update
+                  
+                  {/* <button className="button"> 
+                 <Link to={`/artworks/edit/${oneArtPiece._id}`}>Update</Link>
                   </button>
+
                   <button className="button" onClick={() =>this.deleteArtwork(oneArtPiece._id)}>
                    Delete
-                  </button>
+                  </button> */}
+
                 </p>
               </div>
             );

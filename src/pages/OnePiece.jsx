@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 // import { withUser } from "../components/Auth/withUser";
 import { withRouter } from "react-router-dom";
-import HiddenButtons from "../components/Auth/HiddenButtons";
+// import HiddenButtons from "../components/Auth/HiddenButtons";
 // import Delete from "../components/Forms/Delete";
 // import { Link } from "react-router-dom";
 
@@ -23,7 +23,7 @@ class OnePiece extends React.Component {
   componentDidMount() {
     let id = this.props.match.params.id;
     axios
-      .get(`http://localhost:4000/api/artworks/${id}`)
+      .get(process.env.REACT_APP_BACKEND_URL + `/api/artworks/${id}`)
       .then((response) => {
         this.setState({ artwork: response.data });
       })
@@ -39,13 +39,14 @@ class OnePiece extends React.Component {
     let id = this.props.match.params.id;
     console.log(id);
     axios
-      .post(
-        `http://localhost:4000/api/onepiece/${id}`,
+      .post(process.env.REACT_APP_BACKEND_URL +
+        `/api/onepiece/${id}`,
         {},
         { withCredentials: true }
       )
       .then((response) => {
-        this.props.history.push("api/artworks/purchased");
+         
+        this.props.history.push("/artworks/purchased");
       })
       .catch((error) => {
         console.log(error);
@@ -83,7 +84,7 @@ class OnePiece extends React.Component {
             BUY
           </button>
 
-          <HiddenButtons creator={this.state.artwork.creator} />
+          {/* <HiddenButtons creator={this.state.artwork.creator} /> */}
 
           {/* IF CONNECTED */}
           {/* <Delete /> */}
