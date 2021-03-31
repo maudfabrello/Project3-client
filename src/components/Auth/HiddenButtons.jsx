@@ -2,9 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { withUser } from "./withUser";
 
+// deleteArtwork = (id) => {
+//   console.log(id);
+//   axios
+//     .delete(`http://localhost:4000/api/artworks/${id}`)
+//     .then((res) => {
+//       this.props.history.push("profile");
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+
 function compareIds(creator, userId) {
   let isCreator = false;
-  if (userId === creator._id) {
+  console.log("FROM HIDDEN BUTTONS userId :", userId);
+  console.log("FROM HIDDEN BUTTONS creator :", creator);
+
+  if (userId === creator) {
     console.log("They are the same");
     return true;
   } else {
@@ -26,25 +41,23 @@ const HiddenButtons = (props) => {
   return (
     <div>
       <React.Fragment>
-        {isCreator && <h1>BOUTON IS CREATOR OK</h1>}
-        {!isCreator && <h1>BOUTON IS NOT CREATOR</h1>}
+        {isCreator && (
+          <div>
+            <h1>IS CREATOR INDEED </h1>
 
-        {/* {isCreator && (
-            <Link
-      
-              to={`/artworks/${artwork._id}/edit`}
-            >
-              Edit
-            </Link>
-          )}
-          {isCreator && (
-            <Link
-            
-              to={`/artworks/${artwork._id}/delete`}
+            <button className="button">
+              <Link to={`/artworks/edit/${props.id}`}>Edit</Link>
+            </button>
+            <button
+              className="button"
+              onClick={() => this.deleteArtwork(props.id)}
             >
               Delete
-            </Link>
-          )} */}
+            </button>
+          </div>
+        )}
+
+        {!isCreator && <h1>IS NOT CREATOR</h1>}
       </React.Fragment>
     </div>
   );

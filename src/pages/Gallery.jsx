@@ -13,7 +13,7 @@ class Gallery extends React.Component {
   componentDidMount() {
     // this.getAll();
     axios
-      .get("http://localhost:4000/api/artworks",{ withCredentials: true })
+      .get("http://localhost:4000/api/artworks", { withCredentials: true })
       .then((response) => {
         this.setState({ gallery: response.data });
       })
@@ -22,29 +22,27 @@ class Gallery extends React.Component {
       });
   }
 
-  deleteArtwork = id => {
+  deleteArtwork = (id) => {
     console.log(id);
     // const toDelete = confirm('Are you sure you want to delete?');
     // if (toDelete) {
-      axios
-        .delete(`http://localhost:4000/api/artworks/${id}`)
-        .then((res) => {
-          console.log(res.data)
-          const restOfTheArtworks = this.state.gallery.filter(
-            (artwork) => artwork._id !== id
-          );
-          this.setState({ gallery: restOfTheArtworks });
-          // res.data
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-     
-        // .catch(err => console.log(`Err while deleting character: ${err}`));
+    axios
+      .delete(`http://localhost:4000/api/artworks/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        const restOfTheArtworks = this.state.gallery.filter(
+          (artwork) => artwork._id !== id
+        );
+        this.setState({ gallery: restOfTheArtworks });
+        // res.data
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    // .catch(err => console.log(`Err while deleting character: ${err}`));
     // }
   };
-
- 
 
   render() {
     return (
@@ -61,17 +59,21 @@ class Gallery extends React.Component {
                 </p>
                 <p className="gallery-page-title">{oneArtPiece.title}</p>
                 {/* afficher le nom de l'auteur de l'oeuvre */}
-                <p className="gallery-page-artist">By {oneArtPiece.artistName}</p>
+                <p className="gallery-page-artist">
+                  By {oneArtPiece.artistName}
+                </p>
                 <p>
                   <button className="button">
                     <Link to={`/artworks/${oneArtPiece._id}`}>See more</Link>
                   </button>
                   <p></p>
-                  <button className="button"> 
-                 <Link to={`/artworks/edit/${oneArtPiece._id}`}>Update</Link>
+                  <button className="button">
+                    <Link to={`/artworks/edit/${oneArtPiece._id}`}>Edit</Link>
                   </button>
-                  <button className="button" onClick={() =>this.deleteArtwork(oneArtPiece._id)}>
-                   Delete
+                  <button
+                    className="button"
+                    onClick={() => this.deleteArtwork(oneArtPiece._id)} >
+                    Delete
                   </button>
                 </p>
               </div>
