@@ -44,7 +44,7 @@ class OnePiece extends React.Component {
       .post(`http://localhost:4000/api/onepiece/${id}`,{}, { withCredentials: true })
       .then((response) => {
          
-        this.props.history.push("api/artworks/purchased");
+        this.props.history.push("/artworks/purchased");
       })
       .catch((error) => {
         console.log(error);

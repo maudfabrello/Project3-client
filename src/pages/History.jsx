@@ -15,16 +15,17 @@ class History extends Component {
   //   const { context } = this.props;
   //   console.log(this.props);
 
-    // this.state = {
-    //   purchasedArts: [],
-    // createdArts: [],
-    // };
+  // this.state = {
+  //   purchasedArts: [],
+  // createdArts: [],
+  // };
   //}
 
   componentDidMount() {
-   
     axios
-      .get("http://localhost:4000/api/myhistory/purchasedArt",{ withCredentials: true })
+      .get("http://localhost:4000/api/myhistory/purchasedArt", {
+        withCredentials: true,
+      })
       .then((response) => {
         console.log(response.data);
         this.setState({ purchasedArts: response.data });
@@ -34,9 +35,11 @@ class History extends Component {
       });
 
     axios
-      .get("http://localhost:4000/api/myhistory/createdArt", { withCredentials: true })
+      .get("http://localhost:4000/api/myhistory/createdArt", {
+        withCredentials: true,
+      })
       .then((response) => {
-          console.log(response.data)
+        console.log(response.data);
         this.setState({ createdArts: response.data });
       })
       .catch((error) => {
@@ -64,43 +67,47 @@ class History extends Component {
   };
 
   render() {
-    console.log(this.props.context)
+    console.log(this.props.context);
     // return <div></div>
     return (
-       <div> 
-          <div> USER NAME AND EMAIL</div>
-         <div>
-          {" "}
-          {this.state.purchasedArts.map((oneArtPiece) => {
-            return (
-            <div>
-              <p>PURCHASED {oneArtPiece.purchasedArt[0].title}</p>
-            </div>)
-          })}
-         </div> 
-        <div>
-          {" "}
-          {this.state.createdArts.map((oneArt) => {
-            return (
-              <div>
-                CREATED ARTS
-                <p>{oneArt.title}</p>
-                <button
-                  className="button"
-                  onClick={() => this.deleteArtwork(oneArt._id)}
-                >
-                  Delete
-                </button>
+      <div>
+        <section>
+          <button className="button">
+            <Link to={"/artworks/create"}>Create</Link>
+          </button>
 
-                <button className="button">
-                    <Link to={`/artworks/edit/${oneArt._id}`}>Update</Link>
+          <div>
+            <h1>PURCHASED ARTS</h1>{" "}
+            {this.state.purchasedArts.map((oneArtPiece) => {
+              return (
+                <div>
+                  <p> {oneArtPiece.purchasedArt[0].title}</p>
+                </div>
+              );
+            })}
+          </div>
+          <div>
+            <h1>CREATED ARTS</h1>{" "}
+            {this.state.createdArts.map((oneArt) => {
+              return (
+                <div>
+                  <p>{oneArt.title}</p>
+
+                  <button className="button">
+                    <Link to={`/artworks/edit/${oneArt._id}`}>Edit</Link>
                   </button>
-                
-    
-              </div>
-            );
-          })} 
-        </div> 
+
+                  <button
+                    className="button"
+                    onClick={() => this.deleteArtwork(oneArt._id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </section>
       </div>
     );
   }

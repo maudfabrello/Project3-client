@@ -67,10 +67,8 @@ class Gallery extends React.Component {
                     <Link to={`/artworks/${oneArtPiece._id}`}>See more</Link>
                   </button>
                   <p></p>
-                  <button className="button" 
-                  // onClick={() =>this.deleteArtwork(oneArtPiece._id)}
-                  >
-                   Update
+                  <button className="button"> 
+                 <Link to={`/artworks/edit/${oneArtPiece._id}`}>Update</Link>
                   </button>
                   <button className="button" onClick={() =>this.deleteArtwork(oneArtPiece._id)}>
                    Delete
