@@ -64,7 +64,7 @@ class Gallery extends React.Component {
                 <p className="gallery-page-artist">By {oneArtPiece.artistName}</p>
                 <p>
                   <button className="button">
-                    <Link to={`/artworks/${oneArtPiece._id}`}>See more</Link>
+                    <Link to={`/artworks/${oneArtPiece._id}`}>Details</Link>
                   </button>
                   <p></p>
                   <button className="button" 

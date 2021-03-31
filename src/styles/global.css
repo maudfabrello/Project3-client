@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Lato:wght@300&display=swap');
 
 * {
   margin: 1.5%;
@@ -19,6 +20,18 @@ ul {
   list-style-type: none;
 }
 
+h2 {
+  background: linear-gradient(180deg, rgba(255,255,255,0) 65%, #7ba02c 65%);
+  display: inline;
+}
+
+/* h2 {
+  font-family: "Allura", sans-serif;
+  font-size: 36px;
+} */
+
+
+/* HOME PAGE SLIDESHOW */
 
 
 /* GALLERY PAGE */
@@ -65,10 +78,26 @@ ul {
   padding-bottom: 1em;
 }
 
+/* HOMEPAGE */
+
+.home-page-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.home-page-child {
+  max-width: 40%;
+  display: flex;
+  flex-direction: column;
+  padding: 0% 1% 0% 1%;
+}
+
 /* ONE PIECE PAGE */
 
 .single-container-single-artpiece {
-  margin-top: 7%;
+  margin-top: 2%;
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -86,7 +115,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 7%;
+  margin-bottom: 20%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -99,7 +128,7 @@ ul {
   color: #ffffff;
   border-radius: .15em;
   border-style: none;
-  width: 13%;
+  max-width: 16%;
   text-align: center;
 }
 

@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { withUser } from "./withUser";
 
 function compareIds(creator, userId) {
-  let isCreator = false;
+  // let isCreator = false;
   if (userId === creator._id) {
     console.log("They are the same");
     return true;

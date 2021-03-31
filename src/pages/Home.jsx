@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+// import Slideshow from "../components/Slideshow";
 
 class Home extends React.Component {
   constructor(props) {
@@ -53,10 +54,21 @@ class Home extends React.Component {
     // console.log(randomArtwork);
 
     return (
-      <div>
-        <h1>Art 4 All</h1>
-
-        <div>Random artwork :</div>
+      <div className="home-page-container">
+        <div className="home-page-child">
+        {/* <h1>Art 4 All</h1> */}
+        {/* <Slideshow /> */}
+        <h2>About Art for All</h2>
+        <br></br>
+        <p><b>Art is a passion that everyone should be able to share.</b></p>       
+          <br></br> 
+          <p>At Art for All, our goal is to make that possible. New and experienced artists alike are invited to showcase their art here, at prices that the average art-lover can afford.
+        </p>
+        <br></br>
+        <p>Browse<Link to={`/artworks`}>our gallery</Link>and find a new piece to love.</p>
+        </div>
+        <div className="home-page-child">
+        <h2>We recommend:</h2>
         <div>
           {
             // GUARD OPERATOR :
@@ -65,7 +77,7 @@ class Home extends React.Component {
               <img src={randomPiece.pictureUrl} alt={randomPiece.title} />
             )
           }
-          <Link to={`/artworks`}>Check the whole Gallery!</Link>
+          </div>
         </div>
       </div>
     );
