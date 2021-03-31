@@ -1,10 +1,13 @@
 import React from "react";
 import History from "./History"
+import { withUser } from "../components/Auth/withUser";
 
 const Profile = (props) => {
+  const { context } = props;
   return (
     <div>
-      <h1>Protected profile</h1>
+      <h2>Hello {context.user.firstName}!</h2>
+  
       <div>
       <History/>
       </div>
@@ -12,4 +15,4 @@ const Profile = (props) => {
   );
 };
 
-export default Profile;
+export default withUser(Profile);

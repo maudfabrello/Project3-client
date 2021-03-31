@@ -18,7 +18,7 @@ class FormEditArtwork extends Component {
     const id = this.props.match.params.id;
 
     axios
-      .get(`http://localhost:4000/api/artworks/${id}`, { withCredentials: true })
+      .get(process.env.REACT_APP_BACKEND_URL + `/api/artworks/${id}`, { withCredentials: true })
       .then((response) => {
         const data = response.data;
 
@@ -52,9 +52,9 @@ class FormEditArtwork extends Component {
     formUpdateData.append(" price", this.state.price);
 
     axios
-      .patch(`http://localhost:4000/api/artworks/edit/${id}`, formUpdateData, { withCredentials: true } )
+      .patch(process.env.REACT_APP_BACKEND_URL +`/api/artworks/edit/${id}`, formUpdateData, { withCredentials: true } )
       .then((response) => {
-        this.props.history.push(`api/artworks/${id}`);
+        this.props.history.push("/profile");
       })
       .catch((error) => {
         console.log(error);

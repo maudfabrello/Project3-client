@@ -1,6 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { withUser } from "./withUser";
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import { withUser } from "./withUser";
 
 // deleteArtwork = (id) => {
 //   console.log(id);
@@ -28,15 +28,15 @@ function compareIds(creator, userId) {
   }
 }
 
-const HiddenButtons = (props) => {
-  const { context } = props;
-  // console.log("HIDDEN BUTTON PROPS", props);
-  let isCreator;
-  if (props.context.user) {
-    isCreator = compareIds(props.creator, props.context.user._id);
-  }
+// const HiddenButtons = (props) => {
+//   const { context } = props;
+//   // console.log("HIDDEN BUTTON PROPS", props);
+//   let isCreator;
+//   if (props.context.user) {
+//     isCreator = compareIds(props.creator, props.context.user._id);
+//   }
 
-  console.log("context.user :", context.user);
+//   console.log("context.user :", context.user);
 
   return (
     <div>
@@ -63,4 +63,4 @@ const HiddenButtons = (props) => {
   );
 };
 
-export default withUser(HiddenButtons);
+// export default withUser(HiddenButtons);
