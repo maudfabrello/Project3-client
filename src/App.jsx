@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/artworks" component={Gallery} />
         <Route exact path="/artworks/purchased" component={Purchased}/>
         {/* <Route exact path="/artworks/history" component={History}/> */}
-        <Route exact path="/artworks/:id" component={OnePiece} />
+        <ProtectedRoute exact path="/artworks/:id" component={OnePiece} />
         <ProtectedRoute exact path="/profile" component={Profile} />
       </Switch>
     </div>

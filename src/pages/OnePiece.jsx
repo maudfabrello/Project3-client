@@ -45,7 +45,6 @@ class OnePiece extends React.Component {
         { withCredentials: true }
       )
       .then((response) => {
-         
         this.props.history.push("/artworks/purchased");
       })
       .catch((error) => {
@@ -55,7 +54,7 @@ class OnePiece extends React.Component {
   };
 
   render() {
-    console.log("this.state.artwork", this.state.artwork);
+    console.log("FROM ONEPIECE this.state.artwork :", this.state.artwork);
 
     if (this.state.artwork === null) {
       return <div>Loading...</div>;
@@ -78,13 +77,19 @@ class OnePiece extends React.Component {
             {this.state.artwork.dimensions[1]}
           </p>
           <p>{this.state.artwork.price} €</p>
+
           {/* TO BE CREATED */}
           <button className="one-piece-buy-button" onClick={this.handleClick}>
             {/* <Link onClick={this.handleClick}to={`/artworks/${this.state.artwork._id}/buy`}>Buy</Link> */}
             BUY
           </button>
+<<<<<<< HEAD
+          {/* A REMETTRE :   */}
+          <HiddenButtons creator={this.state.artwork.creator} id={this.state.artwork._id} />
+=======
 
           {/* <HiddenButtons creator={this.state.artwork.creator} /> */}
+>>>>>>> 2412b1f70e996d072c619b59c7db6fdd12978349
 
           {/* IF CONNECTED */}
           {/* <Delete /> */}
