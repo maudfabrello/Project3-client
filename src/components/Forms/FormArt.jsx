@@ -48,7 +48,7 @@ class FormArt extends Component {
         
         //HOW DO WE GET THE ID????DONC GALLERY SORT
         // console.log(id);
-        this.props.history.push(`api/artworks/history`);
+        this.props.history.push(`/profile`);
       })
       .catch((error) => {
         console.log(error);

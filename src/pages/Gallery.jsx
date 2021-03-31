@@ -66,13 +66,15 @@ class Gallery extends React.Component {
                   <button className="button">
                     <Link to={`/artworks/${oneArtPiece._id}`}>See more</Link>
                   </button>
-                  <p></p>
-                  <button className="button"> 
+                  
+                  {/* <button className="button"> 
                  <Link to={`/artworks/edit/${oneArtPiece._id}`}>Update</Link>
                   </button>
+
                   <button className="button" onClick={() =>this.deleteArtwork(oneArtPiece._id)}>
                    Delete
-                  </button>
+                  </button> */}
+
                 </p>
               </div>
             );
