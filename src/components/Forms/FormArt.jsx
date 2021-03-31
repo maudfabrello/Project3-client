@@ -43,7 +43,7 @@ class FormArt extends Component {
   
 
     axios
-      .post("http://localhost:4000/api/artworks/", formData, { withCredentials: true })
+      .post(process.env.REACT_APP_BACKEND_URL + "/api/artworks/", formData, { withCredentials: true })
       .then((response) => {
         
         //HOW DO WE GET THE ID????DONC GALLERY SORT

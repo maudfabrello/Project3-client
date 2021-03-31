@@ -23,7 +23,7 @@ class History extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:4000/api/myhistory/purchasedArt", {
+      .get(process.env.REACT_APP_BACKEND_URL + "/api/myhistory/purchasedArt", {
         withCredentials: true,
       })
       .then((response) => {
@@ -35,7 +35,7 @@ class History extends Component {
       });
 
     axios
-      .get("http://localhost:4000/api/myhistory/createdArt", {
+      .get(process.env.REACT_APP_BACKEND_URL + "/api/myhistory/createdArt", {
         withCredentials: true,
       })
       .then((response) => {
@@ -52,7 +52,7 @@ class History extends Component {
     // const toDelete = confirm('Are you sure you want to delete?');
     // if (toDelete) {
     axios
-      .delete(`http://localhost:4000/api/artworks/${id}`)
+      .delete(process.env.REACT_APP_BACKEND_URL + `/api/artworks/${id}`)
       .then((res) => {
         console.log(res.data);
         const restOfTheArtworks = this.state.createdArts.filter(

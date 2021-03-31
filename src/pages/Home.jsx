@@ -16,7 +16,7 @@ class Home extends React.Component {
   componentDidMount() {
     // this.getAll();
     axios
-      .get("http://localhost:4000/api/artworks")
+      .get(process.env.REACT_APP_BACKEND_URL + "/api/artworks")
       .then((response) => {
         this.setState({ gallery: response.data });
         console.log("THIS.STATE.GALLERY:");

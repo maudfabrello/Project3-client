@@ -23,7 +23,7 @@ class OnePiece extends React.Component {
   componentDidMount() {
     let id = this.props.match.params.id;
     axios
-      .get(`http://localhost:4000/api/artworks/${id}`)
+      .get(process.env.REACT_APP_BACKEND_URL + `/api/artworks/${id}`)
       .then((response) => {
         this.setState({ artwork: response.data });
       })
@@ -39,8 +39,8 @@ class OnePiece extends React.Component {
     let id = this.props.match.params.id;
     console.log(id);
     axios
-      .post(
-        `http://localhost:4000/api/onepiece/${id}`,
+      .post(process.env.REACT_APP_BACKEND_URL +
+        `/api/onepiece/${id}`,
         {},
         { withCredentials: true }
       )
