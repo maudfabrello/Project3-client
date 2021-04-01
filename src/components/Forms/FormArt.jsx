@@ -39,7 +39,7 @@ class FormArt extends Component {
     formData.append("description", this.state.description);
     formData.append("larg", this.state.larg);
     formData.append("lng", this.state.lng);
-    formData.append(" price", this.state.price);
+    formData.append("price", this.state.price);
   
 
     axios

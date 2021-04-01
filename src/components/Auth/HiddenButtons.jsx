@@ -1,11 +1,12 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
-// import { withUser } from "./withUser";
+import React from "react";
+import { Link } from "react-router-dom";
+import { withUser } from "./withUser";
+// import axios from "axios";
 
 // deleteArtwork = (id) => {
 //   console.log(id);
 //   axios
-//     .delete(`http://localhost:4000/api/artworks/${id}`)
+//     .delete(process.env.REACT_APP_BACKEND_UR + `/api/artworks/${id}`)
 //     .then((res) => {
 //       this.props.history.push("profile");
 //     })
@@ -15,7 +16,7 @@
 // };
 
 function compareIds(creator, userId) {
-  let isCreator = false;
+  // let isCreator = false;
   console.log("FROM HIDDEN BUTTONS userId :", userId);
   console.log("FROM HIDDEN BUTTONS creator :", creator);
 
@@ -28,15 +29,15 @@ function compareIds(creator, userId) {
   }
 }
 
-// const HiddenButtons = (props) => {
-//   const { context } = props;
-//   // console.log("HIDDEN BUTTON PROPS", props);
-//   let isCreator;
-//   if (props.context.user) {
-//     isCreator = compareIds(props.creator, props.context.user._id);
-//   }
+const HiddenButtons = (props) => {
+  const { context } = props;
+  // console.log("HIDDEN BUTTON PROPS", props);
+  let isCreator;
+  if (props.context.user) {
+    isCreator = compareIds(props.creator, props.context.user._id);
+  }
 
-//   console.log("context.user :", context.user);
+  console.log("context.user :", context.user);
 
   return (
     <div>
@@ -63,4 +64,4 @@ function compareIds(creator, userId) {
   );
 };
 
-// export default withUser(HiddenButtons);
+export default withUser(HiddenButtons);
