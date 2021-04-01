@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import axios from "axios";
 import { withUser } from "./withUser";
 
@@ -19,11 +19,13 @@ function compareIds(creator, userId) {
 
 const deleteArtwork = (id) => {
   console.log("ID FROM DELETE:", id);
-  console.log('Deleting...');
+  console.log("Deleting...");
+
   axios
     .delete(process.env.REACT_APP_BACKEND_URL + `/api/artworks/${id}`)
     .then((res) => {
-      this.props.history.push("profile");
+      console.log("FROM DELETE PROPS :", this.props);
+      this.props.history.push("/profile");
     })
     .catch((error) => {
       console.log(error);
@@ -66,4 +68,4 @@ const HiddenButtons = (props) => {
   );
 };
 
-export default withUser(HiddenButtons);
+export default withRouter(withUser(HiddenButtons));

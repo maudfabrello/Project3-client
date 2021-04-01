@@ -47,17 +47,15 @@ class Gallery extends React.Component {
   render() {
     return (
       <div>
-        <p>Art Gallery</p>
+        <h2 className="gallery-page-title">Art Gallery</h2>
         <div className="gallery-container-single-artpiece">
           {this.state.gallery.map((oneArtPiece) => {
             return (
               <div className="gallery-single-artpiece">
-                <p>
                   <Link to={`/artworks/${oneArtPiece._id}`}>
                     <img src={oneArtPiece.pictureUrl} alt="" />
                   </Link>
-                </p>
-                <p className="gallery-page-title">{oneArtPiece.title}</p>
+                <p className="gallery-art-title">{oneArtPiece.title}</p>
                 {/* afficher le nom de l'auteur de l'oeuvre */}
                 <p className="gallery-page-artist">
                   By {oneArtPiece.artistName}

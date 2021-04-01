@@ -56,19 +56,19 @@ class Home extends React.Component {
     return (
       <div className="home-page-container">
         <div className="home-page-child">
-        {/* <h1>Art 4 All</h1> */}
-        {/* <Slideshow /> */}
+              {/* <Slideshow /> */}
         <h2>About Art for All</h2>
         <br></br>
-        <p><b>Art is a passion that everyone should be able to share.</b></p>       
+        <p className="art-share-text"> Art is a passion that everyone should share.</p>       
           <br></br> 
           <p>At Art for All, our goal is to make that possible. New and experienced artists alike are invited to showcase their art here, at prices that the average art-lover can afford.
         </p>
         <br></br>
-        <p>Browse<Link to={`/artworks`}>our gallery</Link>and find a new piece to love.</p>
+        <button className="home-page-button"><Link to={`/artworks`}>GALLERY</Link></button>
+        {/* <p>Browse<Link to={`/artworks`}>our gallery</Link>and find a new piece to love.</p> */}
         </div>
         <div className="home-page-child">
-        <h2>We recommend:</h2>
+        <h2>We recommend</h2>
         <div>
           {
             // GUARD OPERATOR :
