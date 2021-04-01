@@ -10,17 +10,6 @@ class History extends Component {
     createdArts: [],
   };
 
-  // constructor(props) {
-  //   super(props);
-  //   const { context } = this.props;
-  //   console.log(this.props);
-
-  // this.state = {
-  //   purchasedArts: [],
-  // createdArts: [],
-  // };
-  //}
-
   componentDidMount() {
     axios
       .get(process.env.REACT_APP_BACKEND_URL + "/api/myhistory/purchasedArt", {
@@ -55,11 +44,11 @@ class History extends Component {
       .delete(process.env.REACT_APP_BACKEND_URL + `/api/artworks/${id}`)
       .then((res) => {
         console.log(res.data);
-        const restOfTheArtworks = this.state.createdArts.filter(
+        //OBJECT DESTRUCTING /SPREADING AN ARRAY
+        const restOfTheArtworks = [...this.state.createdArts].filter(
           (artwork) => artwork._id !== id
         );
         this.setState({ createdArts: restOfTheArtworks });
-        // res.data
       })
       .catch((error) => {
         console.log(error);
@@ -78,7 +67,7 @@ class History extends Component {
             <h1>PURCHASED ARTS</h1>{" "}
             {this.state.purchasedArts.map((oneArtPiece) => {
               return (
-                <div>
+                <div key={oneArtPiece._id}>
                   <p> {oneArtPiece.purchasedArt[0].title}</p>
                   <img
                     className="history-painting-image"
@@ -93,15 +82,14 @@ class History extends Component {
             <h1>CREATED ARTS</h1>{" "}
             {this.state.createdArts.map((oneArt) => {
               return (
-                <div>
+                <div key={oneArt._id}>
                   <p>{oneArt.title}</p>
-                  {/* <Link to={`/artworks/${oneArt._id}`}> */}
+
                   <img
                     className="history-painting-image"
                     src={oneArt.pictureUrl}
                     alt={oneArt.title}
                   />
-                  {/* </Link> */}
 
                   <button className="button">
                     <Link to={`/artworks/edit/${oneArt._id}`}>Edit</Link>

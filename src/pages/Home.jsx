@@ -6,16 +6,13 @@ import { Link } from "react-router-dom";
 class Home extends React.Component {
   constructor(props) {
     super(props);
-   
 
     this.state = {
-      // allContacts: contactsFromJSON,
       gallery: [],
     };
   }
 
   componentDidMount() {
-    // this.getAll();
     axios
       .get(process.env.REACT_APP_BACKEND_URL + "/api/artworks")
       .then((response) => {
@@ -50,38 +47,43 @@ class Home extends React.Component {
     console.log(this.state.gallery);
     console.log("randomPiece :");
     console.log(randomPiece);
-    // console.log("randomArtwork :");
-    // console.log(randomArtwork);
+   
 
     return (
       <div className="home-page-container">
         <div className="home-page-child">
-              {/* <Slideshow /> */}
-        <h2>About Art for All</h2>
-        <br></br>
-        <p className="art-share-text"> Art is a passion that everyone should share.</p>       
-          <br></br> 
-          <p>At Art for All, our goal is to make that possible. New and experienced artists alike are invited to showcase their art here, at prices that the average art lover can afford.
-        </p>
-        <br></br>
-        <button className="home-page-button"><Link to={`/artworks`}>GALLERY</Link></button>
-        {/* <p>Browse<Link to={`/artworks`}>our gallery</Link>and find a new piece to love.</p> */}
+          {/* <Slideshow /> */}
+          <h2>About Art for All</h2>
+          <br></br>
+          <p className="art-share-text">
+            {" "}
+            Art is a passion that everyone should share.
+          </p>
+          <br></br>
+          <p>
+            At Art for All, our goal is to make that possible. New and
+            experienced artists alike are invited to showcase their art here, at
+            prices that the average art lover can afford.
+          </p>
+          <br></br>
+          <button className="home-page-button">
+            <Link to={`/artworks`}>GALLERY</Link>
+          </button>
+          {/* <p>Browse<Link to={`/artworks`}>our gallery</Link>and find a new piece to love.</p> */}
         </div>
         <div className="home-page-child">
-        <h2>We recommend</h2>
-        <div>
-          {
-            // GUARD OPERATOR :
-            randomPiece && (
-              //
-              
+          <h2>We recommend</h2>
+          <div>
+            {
+              // GUARD OPERATOR CHECKS RANDOM PIECE IS DEFINED AND PREVENTS IT FROM CRASHING IF UNDEFINED
+              randomPiece && (
+                //
 
-              <Link to={"/artworks"}>
-                    <img src={randomPiece.pictureUrl} alt={randomPiece.title} />
-                  </Link>
-              
-            )
-          }
+                <Link to={"/artworks"}>
+                  <img src={randomPiece.pictureUrl} alt={randomPiece.title} />
+                </Link>
+              )
+            }
           </div>
         </div>
       </div>

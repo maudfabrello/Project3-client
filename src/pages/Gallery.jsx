@@ -9,7 +9,9 @@ class Gallery extends React.Component {
 
   componentDidMount() {
     axios
-      .get(process.env.REACT_APP_BACKEND_URL + "/api/artworks",{ withCredentials: true })
+      .get(process.env.REACT_APP_BACKEND_URL + "/api/artworks", {
+        withCredentials: true,
+      })
       .then((response) => {
         this.setState({ gallery: response.data });
       })
@@ -23,22 +25,18 @@ class Gallery extends React.Component {
     // FOR FUTURE IMPLEMENTATION
     // const toDelete = confirm('Are you sure you want to delete?');
     // if (toDelete) {
-      axios
-        .delete(process.env.REACT_APP_BACKEND_URL +`/api/artworks/${id}`)
-        .then((res) => {
-          console.log(res.data)
-          const restOfTheArtworks = this.state.gallery.filter(
-            (artwork) => artwork._id !== id
-          );
-          this.setState({ gallery: restOfTheArtworks });
-          // res.data
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-     
-        // .catch(err => console.log(`Err while deleting character: ${err}`));
-    // }
+    axios
+      .delete(process.env.REACT_APP_BACKEND_URL + `/api/artworks/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        const restOfTheArtworks = this.state.gallery.filter(
+          (artwork) => artwork._id !== id
+        );
+        this.setState({ gallery: restOfTheArtworks });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   render() {
@@ -48,10 +46,10 @@ class Gallery extends React.Component {
         <div className="gallery-container-single-artpiece">
           {this.state.gallery.map((oneArtPiece) => {
             return (
-              <div className="gallery-single-artpiece">
-                  <Link to={`/artworks/${oneArtPiece._id}`}>
-                    <img src={oneArtPiece.pictureUrl} alt="" />
-                  </Link>
+              <div key={oneArtPiece._id} className="gallery-single-artpiece">
+                <Link to={`/artworks/${oneArtPiece._id}`}>
+                  <img src={oneArtPiece.pictureUrl} alt="" />
+                </Link>
                 <p className="gallery-art-title">{oneArtPiece.title}</p>
                 {/* afficher le nom de l'auteur de l'oeuvre */}
                 <p className="gallery-page-artist">
@@ -61,7 +59,7 @@ class Gallery extends React.Component {
                   <button className="button">
                     <Link to={`/artworks/${oneArtPiece._id}`}>Details</Link>
                   </button>
-                  
+
                   {/* <button className="button"> 
                  <Link to={`/artworks/edit/${oneArtPiece._id}`}>Update</Link>
                   </button>
@@ -69,7 +67,6 @@ class Gallery extends React.Component {
                   <button className="button" onClick={() =>this.deleteArtwork(oneArtPiece._id)}>
                    Delete
                   </button> */}
-
                 </p>
               </div>
             );

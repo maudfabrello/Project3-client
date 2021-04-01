@@ -13,6 +13,7 @@ class FormArt extends Component {
     price: 0,
   };
 
+  //TAKES THE VALUE THAT THE USER IS TYPING AND SETS IT IN THE STATE
   handleChange = (event) => {
     const key = event.target.name;
     this.setState({ [key]: event.target.value });
@@ -25,6 +26,7 @@ class FormArt extends Component {
     this.setState({ pictureUrl: file });
   };
 
+  //WHEN USER CLICKS ON SUBMIT SENDS THE DATA TO THE DATABASE THROUGH AXIOS CALL
   handleSubmit = (event) => {
     event.preventDefault();
     console.log("handle submit is working");
@@ -37,7 +39,6 @@ class FormArt extends Component {
     formData.append("larg", this.state.larg);
     formData.append("lng", this.state.lng);
     formData.append("price", this.state.price);
-  
 
     axios
       .post(process.env.REACT_APP_BACKEND_URL + "/api/artworks/", formData, {
@@ -57,80 +58,81 @@ class FormArt extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
+        {/* ENCTYPE MULTIPART HANDLES FILE UPLOAD  */}
         <div className="create-edit-container">
-        <h1> Add an artpiece </h1>
-        <div>
-          <label htmlFor="artistName">Artist Name:</label>
-          <input
-            id="artistName"
-            onChange={this.handleChange}
-            value={this.state.artistName}
-            name="artistName"
-            type="text"
-          />
+          <h1> Add an artpiece </h1>
+          <div>
+            <label htmlFor="artistName">Artist Name:</label>
+            <input
+              id="artistName"
+              onChange={this.handleChange}
+              value={this.state.artistName}
+              name="artistName"
+              type="text"
+            />
+          </div>
+          <div>
+            <label htmlFor="pictureUrl">Image</label>
+            <input
+              id="pictureUrl"
+              name="pictureUrl"
+              // value={this.state.pictureUrl}
+              onChange={this.handleImage}
+              type="file"
+            />
+          </div>
+          <div>
+            <label htmlFor="title">Artwork Title:</label>
+            <input
+              id="title"
+              onChange={this.handleChange}
+              value={this.state.title}
+              name="title"
+              type="text"
+            />
+          </div>
+          <div>
+            <label htmlFor="description">Description</label>
+            <input
+              id="description"
+              onChange={this.handleChange}
+              value={this.state.description}
+              name="description"
+              type="text"
+            />
+          </div>
+          <div>
+            <label htmlFor="larg">Width</label>
+            <input
+              id="larg"
+              onChange={this.handleChange}
+              value={this.state.larg}
+              name="larg"
+              type="number"
+            />
+          </div>
+          <div>
+            <label htmlFor="lng">Height</label>
+            <input
+              id="lng"
+              onChange={this.handleChange}
+              value={this.state.lng}
+              name="lng"
+              type="number"
+            />
+          </div>
+          <div>
+            <label htmlFor="price">Price</label>
+            <input
+              id="price"
+              onChange={this.handleChange}
+              value={this.state.price}
+              name="price"
+              type="number"
+            />
+          </div>
+          <button>Submit</button>
         </div>
-        <div>
-          <label htmlFor="pictureUrl">Image</label>
-          <input
-            id="pictureUrl"
-            name="pictureUrl"
-            // value={this.state.pictureUrl}
-            onChange={this.handleImage}
-            type="file"
-          />
-        </div>
-        <div>
-          <label htmlFor="title">Artwork Title:</label>
-          <input
-            id="title"
-            onChange={this.handleChange}
-            value={this.state.title}
-            name="title"
-            type="text"
-          />
-        </div>
-        <div>
-          <label htmlFor="description">Description</label>
-          <input
-            id="description"
-            onChange={this.handleChange}
-            value={this.state.description}
-            name="description"
-            type="text"
-          />
-        </div>
-        <div>
-          <label htmlFor="larg">Width</label>
-          <input
-            id="larg"
-            onChange={this.handleChange}
-            value={this.state.larg}
-            name="larg"
-            type="number"
-          />
-        </div>
-        <div>
-          <label htmlFor="lng">Height</label>
-          <input
-            id="lng"
-            onChange={this.handleChange}
-            value={this.state.lng}
-            name="lng"
-            type="number"
-          />
-        </div>
-        <div>
-          <label htmlFor="price">Price</label>
-          <input
-            id="price"
-            onChange={this.handleChange}
-            value={this.state.price}
-            name="price"
-            type="number"
-          />
-        </div>
-        <button>Submit</button>
-      </div>
       </form>
     );
   }

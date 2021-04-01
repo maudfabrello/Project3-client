@@ -13,6 +13,7 @@ class FormEditArtwork extends Component {
     price: 0,
   };
 
+  //GET THE DATA OF THE ARTWORK FROM THE DATABASE AND DISPLAYS IN THE FORM FIELDS
   componentDidMount() {
     console.log(this.props);
     const id = this.props.match.params.id;
@@ -39,6 +40,7 @@ class FormEditArtwork extends Component {
       });
   }
 
+  //WHEN USER CLICKS ON SUBMIT SENDS THE UPDATED DATA TO THE DATABASE
   handleSubmit = (event) => {
     event.preventDefault();
     const id = this.props.match.params.id;
@@ -67,6 +69,7 @@ class FormEditArtwork extends Component {
       });
   };
 
+  //TAKES THE VALUE THAT THE USER IS TYPING AND SETS IT IN THE STATE
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -83,6 +86,8 @@ class FormEditArtwork extends Component {
     return (
       <div className="create-edit-container">
         <h1> Edit your artwork </h1>
+
+        {/* ENCTYPE MULTIPART HANDLES FILE UPLOAD  */}
         <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
           <div>
             <label htmlFor="artistName">Artist Name:</label>

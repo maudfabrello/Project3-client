@@ -47,8 +47,6 @@ const HiddenButtons = (props) => {
       });
   };
 
-
-
   console.log("context.user :", context.user);
 
   return (

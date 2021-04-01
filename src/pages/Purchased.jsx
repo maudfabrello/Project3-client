@@ -16,7 +16,7 @@ const Purchased = () => {
         <NavLink exact to="/profile">
           <h3>Back to your profile</h3>
         </NavLink>
-    
+
         <NavLink exact to="/artworks">
           <h3>See the Gallery</h3>
         </NavLink>

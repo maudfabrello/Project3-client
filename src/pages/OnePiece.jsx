@@ -3,22 +3,11 @@ import axios from "axios";
 // import { withUser } from "../components/Auth/withUser";
 import { withRouter } from "react-router-dom";
 import HiddenButtons from "../components/Auth/HiddenButtons";
-// import Delete from "../components/Forms/Delete";
-// import { Link } from "react-router-dom";
 
 class OnePiece extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   const { context } = props;
-
-  // this.state = {
-  //   // allContacts: contactsFromJSON,
-  //   artwork: null,
-  // };
   state = {
     artwork: null,
   };
-  // };
 
   componentDidMount() {
     let id = this.props.match.params.id;
