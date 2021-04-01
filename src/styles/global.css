@@ -16,6 +16,10 @@ a {
   color: inherit;
 }
 
+/* a:hover {
+  color: #056f87;
+} */
+
 p {
   font-size: 1.25em;
 }
@@ -25,6 +29,7 @@ ul {
 }
 
 h2 {
+  text-align: center;
   background: linear-gradient(180deg, rgba(255,255,255,0) 65%, #7ba02c 65%);
   display: inline-block;
   width: max-content;
@@ -202,4 +207,19 @@ h2 {
   background-color:blue;
   line-height: 2em;
 } */
+
+/* BUY CONFIRMATION PAGE */
+
+.buy-confirmation-container {
+  max-width: 50%;
+  border: 2px solid gray;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2.5%;
+  margin-top: 4%;
+}
 
