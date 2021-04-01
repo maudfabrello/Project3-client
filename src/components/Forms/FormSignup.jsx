@@ -37,7 +37,17 @@ class FormSignup extends Component {
     }
 
     return (
+      <div className="sign-up-in-container">
       <form onSubmit={this.handleSubmit}>
+      <label htmlFor="firstName">First Name</label>
+        <input
+          onChange={this.handleChange}
+          value={this.state.firstName}
+          type="text"
+          id="firstName"
+          name="firstName"
+        />
+        <br></br>
         <label htmlFor="email">Email</label>
         <input
           onChange={this.handleChange}
@@ -46,6 +56,7 @@ class FormSignup extends Component {
           id="email"
           name="email"
         />
+        <br></br>
         <label htmlFor="password">Password</label>
         <input
           onChange={this.handleChange}
@@ -54,17 +65,11 @@ class FormSignup extends Component {
           id="password"
           name="password"
         />
-         <label htmlFor="firstName">First Name</label>
-        <input
-          onChange={this.handleChange}
-          value={this.state.firstName}
-          type="text"
-          id="firstName"
-          name="firstName"
-        />
+         
         {/* ADDED */}
-        <button>Submit</button>
+        <button className="button">Submit</button>
       </form>
+      </div>
     );
   }
 }

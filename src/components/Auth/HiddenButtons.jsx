@@ -61,6 +61,6 @@ function compareIds(creator, userId) {
       </React.Fragment>
     </div>
   );
-};
+// };
 
 // export default withUser(HiddenButtons);
