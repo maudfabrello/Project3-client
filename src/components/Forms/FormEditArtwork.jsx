@@ -81,8 +81,8 @@ class FormEditArtwork extends Component {
 
   render() {
     return (
-      <div>
-        <h1> Editing your artwork </h1>
+      <div className="create-edit-container">
+        <h1> Edit your artwork </h1>
         <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
           <div>
             <label htmlFor="artistName">Artist Name:</label>
@@ -154,7 +154,7 @@ class FormEditArtwork extends Component {
               type="number"
             />
           </div>
-          <button>Submit</button>
+          <button className="button">Submit</button>
         </form>
       </div>
     );

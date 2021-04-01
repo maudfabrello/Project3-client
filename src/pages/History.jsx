@@ -68,32 +68,38 @@ class History extends Component {
 
   render() {
     console.log(this.props.context);
-    // return <div></div>
     return (
       <div>
-        <section>
-          <button className="button">
-            <Link to={"/artworks/create"}>Add artwork</Link>
-          </button>
-
-          <div>
+        <button className="button">
+          <Link to={"/artworks/create"}>Add artwork</Link>
+        </button>
+        <div className="history-container">
+          <div className="history-child">
             <h1>PURCHASED ARTS</h1>{" "}
             {this.state.purchasedArts.map((oneArtPiece) => {
               return (
                 <div>
                   <p> {oneArtPiece.purchasedArt[0].title}</p>
-                  <img src={oneArtPiece.purchasedArt[0].pictureUrl} alt={oneArtPiece.purchasedArt[0].title}/>
+                  <img
+                    className="history-painting-image"
+                    src={oneArtPiece.purchasedArt[0].pictureUrl}
+                    alt={oneArtPiece.purchasedArt[0].title}
+                  />
                 </div>
               );
             })}
           </div>
-          <div>
+          <div className="history-child">
             <h1>CREATED ARTS</h1>{" "}
             {this.state.createdArts.map((oneArt) => {
               return (
                 <div>
                   <p>{oneArt.title}</p>
-                  <img src={oneArt.pictureUrl} alt={oneArt.title}/>
+                  <img
+                    className="history-painting-image"
+                    src={oneArt.pictureUrl}
+                    alt={oneArt.title}
+                  />
 
                   <button className="button">
                     <Link to={`/artworks/edit/${oneArt._id}`}>Edit</Link>
@@ -109,7 +115,7 @@ class History extends Component {
               );
             })}
           </div>
-        </section>
+        </div>
       </div>
     );
   }
