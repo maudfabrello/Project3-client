@@ -39,8 +39,8 @@ class OnePiece extends React.Component {
     let id = this.props.match.params.id;
     console.log(id);
     axios
-      .post(process.env.REACT_APP_BACKEND_URL +
-        `/api/onepiece/${id}`,
+      .post(
+        process.env.REACT_APP_BACKEND_URL + `/api/onepiece/${id}`,
         {},
         { withCredentials: true }
       )
@@ -71,20 +71,27 @@ class OnePiece extends React.Component {
           <p className="single-page-artist">
             By {this.state.artwork.artistName}
           </p>
-          <p className="single-page-description">{this.state.artwork.description}</p>
           <p className="single-page-description">
-            Dimensions: {this.state.artwork.dimensions[0]} x
-            {this.state.artwork.dimensions[1]}
+            {this.state.artwork.description}
           </p>
-          <p className="single-page-description">{this.state.artwork.price} €</p>
+          <p className="single-page-description">
+            Dimensions: width {this.state.artwork.dimensions[1]} cm, height{" "}
+            {this.state.artwork.dimensions[0]} cm
+          </p>
+          <p className="single-page-description">
+            {this.state.artwork.price} €
+          </p>
 
           {/* TO BE CREATED */}
-          <button className="one-piece-buy-button" onClick={this.handleClick}>
+          <button className="button" onClick={this.handleClick}>
             {/* <Link onClick={this.handleClick}to={`/artworks/${this.state.artwork._id}/buy`}>Buy</Link> */}
             BUY
           </button>
-          {/* A REMETTRE :   */}
-          <HiddenButtons creator={this.state.artwork.creator} id={this.state.artwork._id} />
+
+          <HiddenButtons
+            id={this.state.artwork._id}
+            creator={this.state.artwork.creator}
+          />
 
           {/* IF CONNECTED */}
           {/* <Delete /> */}

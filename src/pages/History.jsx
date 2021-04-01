@@ -73,7 +73,7 @@ class History extends Component {
       <div>
         <section>
           <button className="button">
-            <Link to={"/artworks/create"}>Create</Link>
+            <Link to={"/artworks/create"}>Add artwork</Link>
           </button>
 
           <div>
