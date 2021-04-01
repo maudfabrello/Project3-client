@@ -11,7 +11,6 @@ class FormArt extends Component {
     larg: 0,
     lng: 0,
     price: 0,
-  
   };
 
   handleChange = (event) => {
@@ -19,14 +18,12 @@ class FormArt extends Component {
     this.setState({ [key]: event.target.value });
   };
 
-
   handleImage = (event) => {
     const file = event.target.files[0]; // Get the value of file input
     console.log(file);
     // console.log(file, "this is the file");
     this.setState({ pictureUrl: file });
   };
-
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -39,13 +36,13 @@ class FormArt extends Component {
     formData.append("description", this.state.description);
     formData.append("larg", this.state.larg);
     formData.append("lng", this.state.lng);
-    formData.append(" price", this.state.price);
-  
+    formData.append("price", this.state.price);
 
     axios
-      .post(process.env.REACT_APP_BACKEND_URL + "/api/artworks/", formData, { withCredentials: true })
+      .post(process.env.REACT_APP_BACKEND_URL + "/api/artworks/", formData, {
+        withCredentials: true,
+      })
       .then((response) => {
-        
         //HOW DO WE GET THE ID????DONC GALLERY SORT
         // console.log(id);
         this.props.history.push(`/profile`);
@@ -58,7 +55,7 @@ class FormArt extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}  enctype="multipart/form-data">
+      <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
         <div>
           <label htmlFor="artistName">Artist Name:</label>
           <input

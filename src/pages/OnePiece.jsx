@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 // import { withUser } from "../components/Auth/withUser";
 import { withRouter } from "react-router-dom";
-// import HiddenButtons from "../components/Auth/HiddenButtons";
+import HiddenButtons from "../components/Auth/HiddenButtons";
 // import Delete from "../components/Forms/Delete";
 // import { Link } from "react-router-dom";
 
@@ -79,17 +79,12 @@ class OnePiece extends React.Component {
           <p>{this.state.artwork.price} €</p>
 
           {/* TO BE CREATED */}
-          <button className="one-piece-buy-button" onClick={this.handleClick}>
+          <button className="button" onClick={this.handleClick}>
             {/* <Link onClick={this.handleClick}to={`/artworks/${this.state.artwork._id}/buy`}>Buy</Link> */}
             BUY
           </button>
-<<<<<<< HEAD
-          {/* A REMETTRE :   */}
-          <HiddenButtons creator={this.state.artwork.creator} id={this.state.artwork._id} />
-=======
 
-          {/* <HiddenButtons creator={this.state.artwork.creator} /> */}
->>>>>>> 2412b1f70e996d072c619b59c7db6fdd12978349
+          <HiddenButtons id={this.state.artwork._id} creator={this.state.artwork.creator} />
 
           {/* IF CONNECTED */}
           {/* <Delete /> */}
