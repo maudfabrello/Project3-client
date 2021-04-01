@@ -37,10 +37,7 @@ class FormArt extends Component {
     formData.append("larg", this.state.larg);
     formData.append("lng", this.state.lng);
     formData.append("price", this.state.price);
-<<<<<<< HEAD
-=======
   
->>>>>>> c1a6cb6c9d2b46553155bd870beeb9202cb63929
 
     axios
       .post(process.env.REACT_APP_BACKEND_URL + "/api/artworks/", formData, {
