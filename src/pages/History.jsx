@@ -70,7 +70,7 @@ class History extends Component {
     console.log(this.props.context);
     return (
       <div>
-        <button className="button">
+        <button className="add-artwork-button">
           <Link to={"/artworks/create"}>Add artwork</Link>
         </button>
         <div className="history-container">
@@ -95,11 +95,13 @@ class History extends Component {
               return (
                 <div>
                   <p>{oneArt.title}</p>
+                  {/* <Link to={`/artworks/${oneArt._id}`}> */}
                   <img
                     className="history-painting-image"
                     src={oneArt.pictureUrl}
                     alt={oneArt.title}
                   />
+                  {/* </Link> */}
 
                   <button className="button">
                     <Link to={`/artworks/edit/${oneArt._id}`}>Edit</Link>
