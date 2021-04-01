@@ -25,9 +25,14 @@ const NavMain = (props) => {
       <NavLink exact to="/">
         <img className="logo-nav" src="https://res.cloudinary.com/dyhiaws3n/image/upload/v1617196271/logo-art-for-all_p07xa6.png" alt="art for all logo"></img>
       </NavLink>
+      <NavLink exact to="/">
+        <h3 className="gallery">Home</h3>
+      </NavLink>
       <NavLink exact to="/artworks">
         <h3 className="gallery">Gallery</h3>
       </NavLink>
+
+      
       <ul className="nav-list">
         {context.isLoggedIn && (
           <React.Fragment>
@@ -44,10 +49,10 @@ const NavMain = (props) => {
         {!context.isLoggedIn && (
           <React.Fragment>
             <li>
-              <NavLink to="/signin">Log in</NavLink>
+              <h3><NavLink to="/signin">Log in</NavLink></h3>
             </li>
             <li>
-              <NavLink to="/signup">Create account</NavLink>
+            <h3><NavLink to="/signup">Create account</NavLink></h3>
             </li>
           </React.Fragment>
         )}

@@ -71,12 +71,12 @@ class OnePiece extends React.Component {
           <p className="single-page-artist">
             By {this.state.artwork.artistName}
           </p>
-          <p>{this.state.artwork.description}</p>
-          <p>
+          <p className="single-page-description">{this.state.artwork.description}</p>
+          <p className="single-page-description">
             Dimensions: {this.state.artwork.dimensions[0]} x
             {this.state.artwork.dimensions[1]}
           </p>
-          <p>{this.state.artwork.price} €</p>
+          <p className="single-page-description">{this.state.artwork.price} €</p>
 
           {/* TO BE CREATED */}
           <button className="one-piece-buy-button" onClick={this.handleClick}>

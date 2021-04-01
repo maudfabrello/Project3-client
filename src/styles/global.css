@@ -8,12 +8,16 @@
 }
 
 html {
-  font-family: "Manrope", sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+p {
+  font-size: 1.25em;
 }
 
 ul {
@@ -22,19 +26,32 @@ ul {
 
 h2 {
   background: linear-gradient(180deg, rgba(255,255,255,0) 65%, #7ba02c 65%);
-  display: inline;
+  display: inline-block;
+  width: max-content;
 }
 
-/* h2 {
+/* HOME PAGE */
+
+.art-share-text {
+  padding-top: 3%;
+  font-size: 3.1em;
+  line-height: 1em;
+}
+
+.cursive {
   font-family: "Allura", sans-serif;
-  font-size: 36px;
-} */
-
-
-/* HOME PAGE SLIDESHOW */
-
+  font-size: 1.3em;
+}
 
 /* GALLERY PAGE */
+
+.gallery-page-title {
+  text-align: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0) 65%, #7ba02c 65%);
+  display: inline-block;
+  width: max-content;
+  margin-bottom: 2%;
+}
 
 .gallery-container-single-artpiece {
   max-width: 100%;
@@ -66,11 +83,14 @@ h2 {
 
 .button:hover {
   background-color: #056f87;
+  color: #ffffff;
 }
 
-.gallery-page-title {
+.gallery-art-title {
   font-size: 1.6em;
-  padding-top: 1em;
+  padding-top: .6em;
+  line-height: 1.4em;
+  padding-bottom: .3em;
 }
 
 .gallery-page-artist {
@@ -94,7 +114,31 @@ h2 {
   padding: 0% 1% 0% 1%;
 }
 
+.home-page-button {
+  background-color: #ffffff;
+  padding: 2% 3% 2% 3%;
+  margin: 0px;
+  color: #000000;
+  border-radius: .15em;
+  border-style: black 1px solid;
+  display: inline-flex;
+  max-width: 24%;
+}
+
+.home-page-button:hover {
+  background-color: #2ba7cb;
+  color: white;
+  font-weight: 500;
+  border-style: none;
+}
+
 /* ONE PIECE PAGE */
+
+.single-page-heading-title {
+  font-size: 2.3em;
+  text-align: center;
+  padding: 0px;
+}
 
 .single-container-single-artpiece {
   margin-top: 2%;
@@ -115,7 +159,6 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 20%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -138,9 +181,25 @@ h2 {
 
 .single-page-title {
   font-size: 1.6em;
-  padding-top: 1em;
+  padding: .4em 0em 0em 0em;
 }
 
-.single-page-artist {
+.single-page-artist .single-page-description {
   font-size: 1em;
 }
+
+/* SIGN UP / SIGN IN PAGES */
+
+.sign-up-in-container {
+  padding-top: 2em;
+  width: 60%;
+  height: 60%;
+  display: flex;
+  /* background-color: blueviolet; */
+}
+
+/* .sign-up-in-fields {
+  background-color:blue;
+  line-height: 2em;
+} */
+
