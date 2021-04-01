@@ -75,7 +75,8 @@ class OnePiece extends React.Component {
             {this.state.artwork.description}
           </p>
           <p className="single-page-description">
-            Dimensions: width {this.state.artwork.dimensions[1]} cm, height {this.state.artwork.dimensions[0]} cm
+            Dimensions: width {this.state.artwork.dimensions[1]} cm, height{" "}
+            {this.state.artwork.dimensions[0]} cm
           </p>
           <p className="single-page-description">
             {this.state.artwork.price} €

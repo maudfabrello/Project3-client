@@ -4,7 +4,7 @@ import axios from "axios";
 import { withUser } from "./withUser";
 
 function compareIds(creator, userId) {
-  let isCreator = false;
+  // let isCreator = false;
   console.log("FROM HIDDEN BUTTONS userId :", userId);
   console.log("FROM HIDDEN BUTTONS creator :", creator);
 
