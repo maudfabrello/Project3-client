@@ -61,7 +61,7 @@ class Home extends React.Component {
         <br></br>
         <p className="art-share-text"> Art is a passion that everyone should share.</p>       
           <br></br> 
-          <p>At Art for All, our goal is to make that possible. New and experienced artists alike are invited to showcase their art here, at prices that the average art-lover can afford.
+          <p>At Art for All, our goal is to make that possible. New and experienced artists alike are invited to showcase their art here, at prices that the average art lover can afford.
         </p>
         <br></br>
         <button className="home-page-button"><Link to={`/artworks`}>GALLERY</Link></button>
