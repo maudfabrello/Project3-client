@@ -82,6 +82,7 @@ class History extends Component {
               return (
                 <div>
                   <p> {oneArtPiece.purchasedArt[0].title}</p>
+                  <img src={oneArtPiece.purchasedArt[0].pictureUrl} alt="art"/>
                 </div>
               );
             })}
