@@ -23,7 +23,7 @@ const NavMain = (props) => {
   return (
     <nav className="NavMain">
       <NavLink exact to="/">
-        <img className="logo-nav" src="https://res.cloudinary.com/dcrsw40aq/image/upload/v1617187779/logo-art-for-all_gpx4ou.png" alt="art for all logo"></img>
+        <img className="logo-nav" src="https://res.cloudinary.com/dyhiaws3n/image/upload/v1617196271/logo-art-for-all_p07xa6.png" alt="art for all logo"></img>
       </NavLink>
       <NavLink exact to="/">
         <h3 className="gallery">Home</h3>
