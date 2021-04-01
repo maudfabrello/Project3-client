@@ -62,6 +62,6 @@ const HiddenButtons = (props) => {
       </React.Fragment>
     </div>
   );
-// };
+};
 
 export default withUser(HiddenButtons);

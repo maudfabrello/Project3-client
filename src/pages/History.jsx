@@ -82,7 +82,7 @@ class History extends Component {
               return (
                 <div>
                   <p> {oneArtPiece.purchasedArt[0].title}</p>
-                  <img src={oneArtPiece.purchasedArt[0].pictureUrl} alt="art"/>
+                  <img src={oneArtPiece.purchasedArt[0].pictureUrl} alt={oneArtPiece.purchasedArt[0].title}/>
                 </div>
               );
             })}
@@ -93,6 +93,7 @@ class History extends Component {
               return (
                 <div>
                   <p>{oneArt.title}</p>
+                  <img src={oneArt.pictureUrl} alt={oneArt.title}/>
 
                   <button className="button">
                     <Link to={`/artworks/edit/${oneArt._id}`}>Edit</Link>
