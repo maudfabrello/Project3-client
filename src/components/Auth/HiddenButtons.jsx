@@ -17,20 +17,9 @@ function compareIds(creator, userId) {
   }
 }
 
-const deleteArtwork = (id) => {
-  console.log("ID FROM DELETE:", id);
-  console.log("Deleting...");
 
-  axios
-    .delete(process.env.REACT_APP_BACKEND_URL + `/api/artworks/${id}`)
-    .then((res) => {
-      console.log("FROM DELETE PROPS :", this.props);
-      this.props.history.push("/profile");
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+
+
 
 // const propsId = this.props.id;
 
@@ -42,6 +31,23 @@ const HiddenButtons = (props) => {
   if (props.context.user) {
     isCreator = compareIds(props.creator, props.context.user._id);
   }
+
+  const deleteArtwork = (id) => {
+    console.log("ID FROM DELETE:", id);
+    console.log("Deleting...");
+  
+    axios
+      .delete(process.env.REACT_APP_BACKEND_URL + `/api/artworks/${id}`)
+      .then((res) => {
+        console.log("FROM DELETE PROPS :", props);
+        props.history.push("/profile");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+
 
   console.log("context.user :", context.user);
 
