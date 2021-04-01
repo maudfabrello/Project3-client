@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 // import { withUser } from "../components/Auth/withUser";
 import { withRouter } from "react-router-dom";
-// import HiddenButtons from "../components/Auth/HiddenButtons";
+import HiddenButtons from "../components/Auth/HiddenButtons";
 // import Delete from "../components/Forms/Delete";
 // import { Link } from "react-router-dom";
 
