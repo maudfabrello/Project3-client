@@ -7,11 +7,7 @@ class Gallery extends React.Component {
     gallery: [],
   };
 
-  // getAll() {
-  // }
-
   componentDidMount() {
-    // this.getAll();
     axios
       .get(process.env.REACT_APP_BACKEND_URL + "/api/artworks",{ withCredentials: true })
       .then((response) => {
@@ -24,6 +20,7 @@ class Gallery extends React.Component {
 
   deleteArtwork = (id) => {
     console.log(id);
+    // FOR FUTURE IMPLEMENTATION
     // const toDelete = confirm('Are you sure you want to delete?');
     // if (toDelete) {
       axios

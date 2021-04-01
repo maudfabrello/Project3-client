@@ -7,9 +7,12 @@
   height: 70px;
 }
 
-.NavMain .nav-list {
-  margin-left: auto;
-  display: flex;
+.gallery {
+  padding-right: 7px;
+}
+
+.logout {
+  margin-left: 30px;
 }
 
 /* .NavMain .nav-list li:not(:last-child) {

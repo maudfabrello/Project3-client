@@ -28,35 +28,42 @@ const NavMain = (props) => {
       <NavLink exact to="/">
         <h3 className="gallery">Home</h3>
       </NavLink>
+      <div className="gallery">
       <NavLink exact to="/artworks">
         <h3 className="gallery">Gallery</h3>
       </NavLink>
+      </div>
 
       
-      <ul className="nav-list">
+ 
         {context.isLoggedIn && (
           <React.Fragment>
-            <li>
+            {/* <li>
               <NavLink to="/profile"> 
                 {context.user && context.user.email}
               </NavLink>
-            </li>
-            <li>
-              <p onClick={handleLogout}>Logout</p>
-            </li>
+            </li> */}
+      
+              <h3><NavLink to="/profile"> 
+                {context.user && context.user.firstName}
+              </NavLink>
+              </h3>
+        
+           
+              <h3 className="logout" onClick={handleLogout}>Logout</h3>
+           
           </React.Fragment>
         )}
         {!context.isLoggedIn && (
           <React.Fragment>
-            <li>
+           
               <h3><NavLink to="/signin">Log in</NavLink></h3>
-            </li>
-            <li>
+          
             <h3><NavLink to="/signup">Create account</NavLink></h3>
-            </li>
+          
           </React.Fragment>
         )}
-      </ul>
+     
     </nav>
   );
 };

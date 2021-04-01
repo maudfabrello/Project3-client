@@ -57,6 +57,8 @@ class FormArt extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} enctype="multipart/form-data">
+        <div className="create-edit-container">
+        <h1> Add an artpiece </h1>
         <div>
           <label htmlFor="artistName">Artist Name:</label>
           <input
@@ -128,6 +130,7 @@ class FormArt extends Component {
           />
         </div>
         <button>Submit</button>
+      </div>
       </form>
     );
   }

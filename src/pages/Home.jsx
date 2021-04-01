@@ -74,7 +74,12 @@ class Home extends React.Component {
             // GUARD OPERATOR :
             randomPiece && (
               //
-              <img src={randomPiece.pictureUrl} alt={randomPiece.title} />
+              
+
+              <Link to={"/artworks"}>
+                    <img src={randomPiece.pictureUrl} alt={randomPiece.title} />
+                  </Link>
+              
             )
           }
           </div>
