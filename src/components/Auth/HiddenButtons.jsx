@@ -40,6 +40,7 @@ const HiddenButtons = (props) => {
       .delete(process.env.REACT_APP_BACKEND_URL + `/api/artworks/${id}`)
       .then((res) => {
         console.log("FROM DELETE PROPS :", props);
+        //PROPS AND CALLBACK
         props.history.push("/profile");
       })
       .catch((error) => {
