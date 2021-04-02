@@ -47,6 +47,7 @@ class Home extends React.Component {
     console.log(this.state.gallery);
     console.log("randomPiece :");
     console.log(randomPiece);
+    console.log("C'EST QUOI PROPS" , this.props)
    
 
     return (

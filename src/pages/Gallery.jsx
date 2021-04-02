@@ -13,6 +13,8 @@ class Gallery extends React.Component {
         withCredentials: true,
       })
       .then((response) => {
+
+        //NOT MUTATING THE STATE DIRECTLY
         this.setState({ gallery: response.data });
       })
       .catch((error) => {

@@ -45,7 +45,6 @@ class FormArt extends Component {
         withCredentials: true,
       })
       .then((response) => {
-        //HOW DO WE GET THE ID????DONC GALLERY SORT
         // console.log(id);
         this.props.history.push(`/profile`);
       })
