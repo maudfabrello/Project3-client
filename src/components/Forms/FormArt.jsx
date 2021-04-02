@@ -45,7 +45,7 @@ class FormArt extends Component {
         withCredentials: true,
       })
       .then((response) => {
-        // console.log(id);
+        //REDIRECT FRONT END
         this.props.history.push(`/profile`);
       })
       .catch((error) => {
