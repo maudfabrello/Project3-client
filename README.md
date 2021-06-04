@@ -8,7 +8,7 @@ It allows you to share you artworks with afficionados and put them up for sale i
 
 You can also buy an art piece from one of our users and find it in your Purchased Art History in your profile
 
-This is the first app we built in React/node.js from scratch in only 5 days during our Ironhack Bootcamp
+This is the first app we built in React/node.js from scratch in only 1 week during our Ironhack Bootcamp
 
 
 ## Test our App [here](https://art-for-all-app.herokuapp.com/)!
