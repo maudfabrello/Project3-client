@@ -30,3 +30,10 @@
 .NavMain h3:hover {
   color: #056f87;
 }
+
+@media screen and (max-width: 600px) {
+  .logo-nav {
+    max-width: 60px;
+  }
+  
+}

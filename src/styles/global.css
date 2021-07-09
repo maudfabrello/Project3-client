@@ -274,3 +274,28 @@ h2 {
   background-color: #056f87;
   color: #ffffff;
 }
+
+@media screen and (max-width: 600px) {
+  .art-share-text {
+    font-size: 1em;
+  }
+  h2 {
+    font-size: large;
+  }
+  p {
+    font-size: 0.8em;
+  }
+  .home-page-button {
+    max-width: 62%;
+  }
+  .home-page-container {
+    padding-top: 20%;
+  }
+  .gallery-page-title {
+    padding-top: 8px;
+    margin-left: 10px;
+  }
+  .gallery-container-single-artpiece {
+    padding-top: 20px;
+  }
+}
